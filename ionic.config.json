@@ -1,0 +1,8 @@
+{
+  "name": "storrific",
+  "app_id": "b278ca27",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
