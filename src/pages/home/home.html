@@ -1,14 +1,8 @@
 <ion-content padding>
   <ion-card>
     <ion-slides autoplay="3000" pager>
-      <ion-slide>
-        <img src="http://placehold.it/350x200" alt="">
-      </ion-slide>
-      <ion-slide>
-        <img src="http://placehold.it/350x200" alt="">
-      </ion-slide>
-      <ion-slide>
-        <img src="http://placehold.it/350x200" alt="">
+      <ion-slide *ngFor="let image of [1,2,3,4]">
+        <img src="./assets/imgs/{{image}}.jpg" alt="">
       </ion-slide>
     </ion-slides>
   </ion-card>
