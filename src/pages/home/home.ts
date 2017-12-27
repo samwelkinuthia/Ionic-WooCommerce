@@ -8,8 +8,12 @@ import * as WC from 'woocommerce-api';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  Woocommerce: any;
 
+  constructor(public navCtrl: NavController) {
+    this.Woocommerce = WC({
+      url: "http://localhost:81/wordpress/shop/"
+    })
   }
 
 }
