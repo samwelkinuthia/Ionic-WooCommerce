@@ -10,11 +10,13 @@ import * as WC from 'woocommerce-api';
 export class HomePage {
   WooCommerce:any;
   products: any[];
+  page: number;
   moreProducts: any[];
 
   @ViewChild('productSlides') productSlides: Slides;
 
   constructor(public navCtrl: NavController){
+    this.page = 2;
     this.WooCommerce = WC ({
       url: 'URL',
       consumerKey: 'KEY',
