@@ -15,9 +15,9 @@ export class HomePage {
 
   constructor(public navCtrl: NavController){
     this.WooCommerce = WC ({
-      url: 'STORE_URL',
+      url: 'URL',
       consumerKey: 'KEY',
-      consumerSecret: 'SECRET'
+      consumerSecret: 'SEC'
     });
 
     this.WooCommerce.getAsync('products').then( (data) => {
@@ -31,9 +31,9 @@ export class HomePage {
 
   ionViewDidLoad(){
     setInterval(() =>{
-      if (this.productSlides.getActiveIndex() == this.productSlides.length() - 1){
+      if (this.productSlides.getActiveIndex() == this.productSlides.length() - 1)
         this.productSlides.slideTo(0);
-      }
+        // console.log(this.productSlides.getActiveIndex() - 1);
       this.productSlides.slideNext();
     }, 3000);
   }
