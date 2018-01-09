@@ -1,13 +1,3 @@
-<ion-content padding>
-  <ion-card>
-    <ion-slides autoplay="3000" pager>
-      <ion-slide *ngFor="let image of [1,2,3,4]">
-        <img src="./assets/imgs/{{image}}.jpg" alt="">
-      </ion-slide>
-    </ion-slides>
-  </ion-card>
-</ion-content>
-
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -16,3 +6,23 @@
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-slides autoplay="3000" pager>
+      <ion-slide *ngFor="let image of [1,2,3,4]">
+        <img src="./assets/imgs/{{image}}.jpg" alt="">
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+
+  <ion-grid style="border:2px solid red">
+    <ion-row style="border:2px solid blue">
+      <ion-slides style="border:2px solid purple">
+        <ion-slide style="border:2px solid green">
+
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+  </ion-grid>
+</ion-content>
