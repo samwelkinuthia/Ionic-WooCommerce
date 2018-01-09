@@ -22,6 +22,8 @@
         <ion-slide *ngFor="let product of products" style="border:2px solid green">
           <ion-card no-padding>
             <img [src]="product.featured_src" alt="">
+            <h1>{{ product.title }}</h1>
+            <p>{{ product.short_description }}</p>
           </ion-card>
         </ion-slide>
       </ion-slides>
