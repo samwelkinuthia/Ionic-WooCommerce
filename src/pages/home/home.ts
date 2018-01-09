@@ -31,7 +31,7 @@ export class HomePage {
 
   ionViewDidLoad(){
     setInterval(() =>{
-
+      this.productSlides.slideNext();
     }, 3000);
   }
 }
