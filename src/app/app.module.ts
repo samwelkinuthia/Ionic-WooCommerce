@@ -6,7 +6,6 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuPage } from "../pages/menu/menu";
-import { AppConfig } from "../config/app.config";
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { AppConfig } from "../config/app.config";
   ],
   providers: [
     StatusBar,
-    AppConfig,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
