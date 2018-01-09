@@ -19,7 +19,7 @@
   <ion-grid style="border:2px solid red">
     <ion-row style="border:2px solid blue">
       <ion-slides style="border:2px solid purple">
-        <ion-slide style="border:2px solid green">
+        <ion-slide *ngFor="let product of products" style="border:2px solid green">
 
         </ion-slide>
       </ion-slides>
