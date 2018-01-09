@@ -11,6 +11,8 @@ export class HomePage {
   WooCommerce:any;
   products: any[];
 
+  @ViewChild('productSlides') productSlides: Slides;
+
   constructor(public navCtrl: NavController){
     this.WooCommerce = WC ({
       url: 'STORE_URL',
