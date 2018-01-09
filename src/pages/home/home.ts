@@ -40,6 +40,12 @@ export class HomePage {
   }
 
   loadMoreProducts(){
-
+    this.WooCommerce.getAsync('products?page=' + this.page).then( (data) => {
+      console.log(JSON.parse(data.body));
+      this.products = JSON.parse(data.body).products;
+      // console.log(this.products);
+    }, (err) => {
+      console.log(err)
+    });
   }
 }
