@@ -40,7 +40,7 @@
       </ion-thumbnail>
       <h3>{{ product.title }}</h3>
       <p>
-        <span [innerHTML]="product.description"></span>
+        <span [innerHTML]="product.description.substr(0, 45) + '...'"></span>
         <span [innerHTML]="product.price"></span>
       </p>
     </ion-item>
