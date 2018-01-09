@@ -28,4 +28,10 @@ export class HomePage {
       console.log(err)
     });
   }
+
+  ionViewDidLoad(){
+    setInterval(() =>{
+
+    }, 3000);
+  }
 }
