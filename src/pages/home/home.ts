@@ -1,5 +1,5 @@
-import { Component} from "@angular/core";
-import { NavController } from "ionic-angular";
+import { Component, ViewChild} from "@angular/core";
+import { NavController, Slides } from "ionic-angular";
 import * as WC from 'woocommerce-api';
 
 @Component({
@@ -13,9 +13,9 @@ export class HomePage {
 
   constructor(public navCtrl: NavController){
     this.WooCommerce = WC ({
-      url: 'YOUR_STORE_URL',
-      consumerKey: 'CONSUMER_KEY',
-      consumerSecret: 'YOUR_CONSUMER_SECRET'
+      url: 'STORE_URL',
+      consumerKey: 'KEY',
+      consumerSecret: 'SECRET'
     });
 
     this.WooCommerce.getAsync('products').then( (data) => {
