@@ -39,7 +39,10 @@
         <img [src]="product.featured_src" alt="">
       </ion-thumbnail>
       <h3>{{ product.title }}</h3>
-      <p><span [innerHTML]="product.description"></span> | <span [innerHTML]="product.price"></span></p>
+      <p>
+        <span [innerHTML]="product.description"></span>
+        <span [innerHTML]="product.price"></span>
+      </p>
     </ion-item>
   </ion-list>
 </ion-content>
