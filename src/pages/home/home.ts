@@ -10,6 +10,7 @@ import * as WC from 'woocommerce-api';
 export class HomePage {
   WooCommerce:any;
   products: any[];
+  moreProducts: any[];
 
   @ViewChild('productSlides') productSlides: Slides;
 
@@ -36,5 +37,9 @@ export class HomePage {
         // console.log(this.productSlides.getActiveIndex() - 1);
       this.productSlides.slideNext();
     }, 3000);
+  }
+
+  loadMoreProducts(){
+
   }
 }
