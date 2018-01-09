@@ -32,6 +32,8 @@ export class HomePage {
   ionViewDidLoad(){
     setInterval(() =>{
       this.productSlides.slideNext();
+      if (this.productSlides.getActiveIndex() == this.productSlides.length() - 1){
+      }
     }, 3000);
   }
 }
