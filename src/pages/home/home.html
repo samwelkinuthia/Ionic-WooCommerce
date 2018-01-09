@@ -25,8 +25,8 @@
           <ion-card no-padding>
             <img [src]="product.featured_src" alt="">
             <h1>{{ product.title }}</h1>
-            <p padding center>{{ product.description }}</p>
-            <p center padding>{{ product.price }}</p>
+            <p center padding [innerHTML]="product.description"></p>
+            <h2>KSH {{product.price}}</h2>
           </ion-card>
         </ion-slide>
       </ion-slides>
