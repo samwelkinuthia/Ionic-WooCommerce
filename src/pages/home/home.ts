@@ -23,7 +23,7 @@ export class HomePage {
       consumerSecret: 'SECRET'
     });
 
-    this.loadMoreProducts();
+    this.loadMoreProducts(null);
 
     this.WooCommerce.getAsync('products').then( (data) => {
      console.log(JSON.parse(data.body));
