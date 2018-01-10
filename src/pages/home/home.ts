@@ -17,10 +17,11 @@ export class HomePage {
 
   constructor(public navCtrl: NavController){
     this.page = 2;
+
     this.WooCommerce = WC ({
       url: 'URL',
       consumerKey: 'KEY',
-      consumerSecret: 'SECRET'
+      consumerSecret: 'SEC'
     });
 
     this.loadMoreProducts(null);
@@ -38,26 +39,34 @@ export class HomePage {
     setInterval(() =>{
       if (this.productSlides.getActiveIndex() == this.productSlides.length() - 1)
         this.productSlides.slideTo(0);
-        // console.log(this.productSlides.getActiveIndex() - 1);
+        // console.log(this.productSlides.getActiveIndex());
       this.productSlides.slideNext();
     }, 3000);
   }
 
-  loadMoreProducts($event){
-    if (event == null){
-      this.page = 2
+
+  loadMoreProducts(event){
+    console.log(event);
+    if(event == null)
+    {
+      this.page = 2;
       this.moreProducts = [];
-    } else {
-      this.page ++;
     }
+    else
+      this.page++;
 
-    this.WooCommerce.getAsync('products?page=' + this.page).then( (data) => {
-      console.log(JSON.parse(data.body));
+    this.WooCommerce.getAsync("products?page=" + this.page).then( (data) => {
+      // console.log(JSON.parse(data.body));
       this.moreProducts = this.moreProducts.concat(JSON.parse(data.body).products);
-      console.log(this.moreProducts);
+      // console.log(this.moreProducts.length);
 
-      if (event != null){
+      if(event != null)
+      {
         event.complete();
+      }
+
+      if(JSON.parse(data.body).products.length < 10){
+        event.enable(false);
       }
     }, (err) => {
       console.log(err)
