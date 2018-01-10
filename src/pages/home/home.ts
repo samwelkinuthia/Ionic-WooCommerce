@@ -43,7 +43,7 @@ export class HomePage {
     }, 3000);
   }
 
-  loadMoreProducts(){
+  loadMoreProducts($event){
     this.WooCommerce.getAsync('products?page=' + this.page).then( (data) => {
       console.log(JSON.parse(data.body));
       this.moreProducts = JSON.parse(data.body).products;
