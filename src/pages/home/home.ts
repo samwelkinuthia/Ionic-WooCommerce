@@ -55,7 +55,10 @@ export class HomePage {
       console.log(JSON.parse(data.body));
       this.moreProducts = this.moreProducts.concat(JSON.parse(data.body).products);
       console.log(this.moreProducts);
-      // console.log(this.products);
+
+      if (event != null){
+        event.complete();
+      }
     }, (err) => {
       console.log(err)
     });
