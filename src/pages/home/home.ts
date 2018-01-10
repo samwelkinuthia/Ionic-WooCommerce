@@ -44,16 +44,17 @@ export class HomePage {
   }
 
   loadMoreProducts($event){
-    if (event == null)
-      this.page = 2;
+    if (event == null){
+      this.page = 2
       this.moreProducts = [];
-    else
+    } else {
       this.page ++;
-
+    }
 
     this.WooCommerce.getAsync('products?page=' + this.page).then( (data) => {
       console.log(JSON.parse(data.body));
-      this.moreProducts = JSON.parse(data.body).products;
+      this.moreProducts = this.moreProducts.concat(JSON.parse(data.body).products);
+      console.log(this.moreProducts);
       // console.log(this.products);
     }, (err) => {
       console.log(err)
