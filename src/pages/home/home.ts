@@ -70,6 +70,7 @@ export class HomePage {
 
         this.toastCtrl.create({
           message: 'Whoopsie, No more products'
+          duration: 3000;
         }).present();
 
       }
