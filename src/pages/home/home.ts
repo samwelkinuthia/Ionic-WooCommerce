@@ -68,6 +68,10 @@ export class HomePage {
       if(JSON.parse(data.body).products.length < 10){
         event.enable(false);
 
+        this.toastCtrl.create({
+          message: 'Whoopsie, No more products'
+        }).present();
+
       }
     }, (err) => {
       console.log(err)
