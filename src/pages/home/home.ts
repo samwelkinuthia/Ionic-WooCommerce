@@ -1,5 +1,5 @@
 import { Component, ViewChild} from "@angular/core";
-import { NavController, Slides } from "ionic-angular";
+import { NavController, Slides, ToastController } from "ionic-angular";
 import * as WC from 'woocommerce-api';
 
 @Component({
