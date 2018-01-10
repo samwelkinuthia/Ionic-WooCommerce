@@ -15,7 +15,7 @@ export class HomePage {
 
   @ViewChild('productSlides') productSlides: Slides;
 
-  constructor(public navCtrl: NavController){
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController){
     this.page = 2;
 
     this.WooCommerce = WC ({
@@ -67,6 +67,7 @@ export class HomePage {
 
       if(JSON.parse(data.body).products.length < 10){
         event.enable(false);
+
       }
     }, (err) => {
       console.log(err)
