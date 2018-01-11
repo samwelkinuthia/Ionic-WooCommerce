@@ -29,9 +29,12 @@ export class MenuPage {
 
       for (let i = 0; i < temp.length; i++){
         if(temp[i].parent == 0){
-          if (temp[i].slug == "clothing"){
-            temp[i].icon = "shirt";
-          }
+          // USING A SINGLE ICON FOR ALL CATEGORIES...COZ OF TIME AND STUFF REASONS :D
+          temp[i].icon = "arrow-dropright-circle";
+          // REPEAT MANY TIMES FOR ALL  CATEGORIES
+          // if (temp[i].slug == "clothing"){
+          //   temp[i].icon = "shirt";
+          // }
           this.categories.push(temp[i])
         }
       }
