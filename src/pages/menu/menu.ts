@@ -24,9 +24,12 @@ export class MenuPage {
     });
 
     this.WooCommerce.getAsync("products/categories").then((data) => {
-      console.log(JSON.parse(data.body).product_categories);
-
+      // console.log(JSON.parse(data.body).product_categories);
       let temp:any[] = JSON.parse(data.body).product_categories;
+
+      for (let i = 0; i < temp.length(); i++){
+
+      }
 
     }, (err) => {
       console.log(err);
