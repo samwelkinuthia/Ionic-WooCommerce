@@ -29,6 +29,9 @@ export class MenuPage {
 
       for (let i = 0; i < temp.length; i++){
         if(temp[i].parent == 0){
+          if (temp[i].slug == "clothing"){
+            temp[i].icon = "shirt";
+          }
           this.categories.push(temp[i])
         }
       }
