@@ -10,6 +10,7 @@ import * as WC from "woocommerce-api";
 })
 export class MenuPage {
   homePage: any;
+  WooCommerce: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.homePage = HomePage;
