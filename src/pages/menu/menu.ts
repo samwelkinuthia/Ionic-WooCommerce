@@ -21,6 +21,12 @@ export class MenuPage {
       consumerSecret: 'SECRET'
     });
 
+    this.WooCommerce.getAsync("products/categories").then((data) => {
+      console.log(JSON.parse(data.body));
+    }, (err) => {
+      console.log(err);
+    })
+
   }
 
   ionViewDidLoad() {
