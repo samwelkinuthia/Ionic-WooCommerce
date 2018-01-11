@@ -27,9 +27,9 @@ export class MenuPage {
       // console.log(JSON.parse(data.body).product_categories);
       let temp:any[] = JSON.parse(data.body).product_categories;
 
-      for (let i = 0; i < temp.length(); i++){
+      for (let i = 0; i < temp.length; i++){
         if(temp[i].parent == 0){
-
+          this.categories.push(temp[i])
         }
       }
 
