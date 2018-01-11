@@ -15,6 +15,7 @@ export class MenuPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.homePage = HomePage;
+    this.categories = [];
 
     this.WooCommerce = WC ({
       url: 'URL',
