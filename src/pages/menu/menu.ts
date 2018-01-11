@@ -22,7 +22,7 @@ export class MenuPage {
     });
 
     this.WooCommerce.getAsync("products/categories").then((data) => {
-      console.log(JSON.parse(data.body));
+      console.log(JSON.parse(data.body).product_categories);
     }, (err) => {
       console.log(err);
     })
