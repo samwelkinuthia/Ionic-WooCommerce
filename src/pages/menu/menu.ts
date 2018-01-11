@@ -32,7 +32,7 @@ export class MenuPage {
           this.categories.push(temp[i])
         }
       }
-
+      console.log(this.categories);
     }, (err) => {
       console.log(err);
     })
