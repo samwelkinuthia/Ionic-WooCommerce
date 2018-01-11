@@ -69,8 +69,8 @@ export class HomePage {
         event.enable(false);
 
         this.toastCtrl.create({
-          message: 'Whoopsie, No more products'
-          duration: 3000;
+          message: 'Whoopsie, No more products',
+          duration: 3000
         }).present();
 
       }
