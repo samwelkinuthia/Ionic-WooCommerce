@@ -6,6 +6,10 @@ import * as WC from "woocommerce-api";
   templateUrl: 'products-by-category.html',
 })
 export class ProductsByCategoryPage {
+  WooCommerce: any;
+  category:any;
+  products: any[];
+  page: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
