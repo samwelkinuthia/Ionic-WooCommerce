@@ -22,6 +22,7 @@ export class ProductsByCategoryPage {
 
     this.WooCommerce.getAsync("products?filter[category]=" + this.category.slug).then((data) => {
       console.log(data);
+      this.products = JSON.parse(data.body).products;
     }, (err) => {
       console.log(err);
     });
