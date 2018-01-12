@@ -20,7 +20,7 @@ export class ProductsByCategoryPage {
       consumerSecret: 'SECRET'
     });
 
-    this.WooCommerce.getAsync("").then((data) => {
+    this.WooCommerce.getAsync("products?filter[category]=").then((data) => {
 
     }, (err) => {
       console.log(err);
