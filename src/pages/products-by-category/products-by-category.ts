@@ -28,9 +28,9 @@ export class ProductsByCategoryPage {
     });
   }
 
-  //
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad ProductsByCategoryPage');
-  // }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ProductsByCategoryPage');
+  }
 
 }
