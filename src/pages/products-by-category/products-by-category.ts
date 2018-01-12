@@ -12,7 +12,7 @@ export class ProductsByCategoryPage {
   page: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+    this.page = 1;
     this.WooCommerce = WC ({
       url: 'URL',
       consumerKey: 'KEY',
