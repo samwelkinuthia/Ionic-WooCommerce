@@ -44,9 +44,13 @@ export class MenuPage {
     })
 
   }
+  //
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad MenuPage');
+  // }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MenuPage');
+  openCategory(category) {
+
   }
 
 }
