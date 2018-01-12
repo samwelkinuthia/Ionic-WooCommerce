@@ -12,7 +12,14 @@ export class ProductsByCategoryPage {
   page: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.WooCommerce = WC ({
+      url: 'URL',
+      consumerKey: 'KEY',
+      consumerSecret: 'SECRET'
+    });
   }
+
   //
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad ProductsByCategoryPage');
