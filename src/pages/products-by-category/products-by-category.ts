@@ -19,6 +19,12 @@ export class ProductsByCategoryPage {
       consumerKey: 'KEY',
       consumerSecret: 'SECRET'
     });
+
+    this.WooCommerce.getAsync("").then((data) => {
+
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   //
