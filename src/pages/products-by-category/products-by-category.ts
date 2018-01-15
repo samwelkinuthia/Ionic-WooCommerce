@@ -34,7 +34,7 @@ export class ProductsByCategoryPage {
   }
 
   loadMoreProducts(event){
-
+    this.page++;
   }
 
 }
