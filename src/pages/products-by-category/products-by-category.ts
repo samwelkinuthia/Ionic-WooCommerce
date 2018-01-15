@@ -38,7 +38,8 @@ export class ProductsByCategoryPage {
     console.log("loading page.. " + this.page);
 
     this.WooCommerce.getAsync("products?filter[category]=" + this.category.slug + "&page=" + this.page).then((data) => {
-      this.temp = JSON.parse((data.body).products);
+      let temp = JSON.parse((data.body).products);
+      this.products = this.products.concat(JSON.parse(data.body).products);
     }, (err) => {
       console.log(err);
     })
