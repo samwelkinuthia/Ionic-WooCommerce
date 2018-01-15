@@ -51,7 +51,7 @@ export class MenuPage {
   // }
 
   openCategory(category) {
-    this.navCtrl.setRoot(ProductsByCategoryPage, {"category": category});
+    this.childCtrl.setRoot(ProductsByCategoryPage, {"category": category});
   }
 
 }
