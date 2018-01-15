@@ -11,7 +11,7 @@ export class ProductsByCategoryPage {
   products: any[];
   page: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
     this.page = 1;
     this.category = this.navParams.get("category");
     this.WooCommerce = WC ({
