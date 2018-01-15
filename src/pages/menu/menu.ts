@@ -12,6 +12,7 @@ export class MenuPage {
   homePage: any;
   WooCommerce: any;
   categories:any[];
+  @ViewChild('content') childCtrl: NavController;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.homePage = HomePage;
