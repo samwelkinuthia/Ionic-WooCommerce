@@ -45,6 +45,11 @@ export class ProductsByCategoryPage {
 
       if (temp.length < 10)
         event.enable(false);
+
+      this.toastCtrl.create({
+        message: "No more products in " + this.category + " category.",
+        duration: 2000
+      }).present();
     }, (err) => {
       console.log(err);
     })
