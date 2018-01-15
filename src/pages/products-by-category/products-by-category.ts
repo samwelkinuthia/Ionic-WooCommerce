@@ -33,7 +33,7 @@ export class ProductsByCategoryPage {
     console.log('ionViewDidLoad ProductsByCategoryPage');
   }
 
-  loadMoreProducts(){
+  loadMoreProducts(event){
 
   }
 
