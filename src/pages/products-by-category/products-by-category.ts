@@ -41,6 +41,7 @@ export class ProductsByCategoryPage {
       let temp = JSON.parse((data.body).products);
       this.products = this.products.concat(JSON.parse(data.body).products);
       console.log(this.products);
+      event.complete();
     }, (err) => {
       console.log(err);
     })
