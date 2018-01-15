@@ -36,6 +36,12 @@ export class ProductsByCategoryPage {
   loadMoreProducts(event){
     this.page++;
     console.log("loading page.. " + this.page);
+
+    this.WooCommerce.getAsync((data) => {
+      console.log(data);
+    }, (err) => {
+      console.log(err);
+    })
   }
 
 }
