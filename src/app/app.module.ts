@@ -6,14 +6,15 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuPage } from "../pages/menu/menu";
-import {ProductsByCategoryPage} from "../pages/products-by-category/products-by-category";
-
+import { ProductsByCategoryPage } from "../pages/products-by-category/products-by-category";
+import { ProductDetailsPage } from "../pages/product-details/product-details";
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     MenuPage,
-    ProductsByCategoryPage
+    ProductsByCategoryPage,
+    ProductDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,8 @@ import {ProductsByCategoryPage} from "../pages/products-by-category/products-by-
     MyApp,
     HomePage,
     MenuPage,
-    ProductsByCategoryPage
+    ProductsByCategoryPage,
+    ProductDetailsPage
   ],
   providers: [
     StatusBar,
