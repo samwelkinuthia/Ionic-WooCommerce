@@ -80,7 +80,7 @@ export class HomePage {
     });
   }
 
-  showProduct(){
+  showProduct(product){
     this.navCtrl.push(ProductDetailsPage)
   }
 }
