@@ -81,5 +81,6 @@ export class HomePage {
   }
 
   showProduct(){
+    this.navCtrl.push(ProductDetailsPage)
   }
 }
