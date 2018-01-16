@@ -8,5 +8,6 @@ export class ProductDetailsPage {
   product: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.product = this.navParams.get("product");
+    console.log(this.product);
   }
 }
