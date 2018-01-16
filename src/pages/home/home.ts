@@ -1,6 +1,7 @@
 import { Component, ViewChild} from "@angular/core";
 import { NavController, Slides, ToastController } from "ionic-angular";
 import * as WC from 'woocommerce-api';
+import { ProductDetailsPage } from "../product-details/product-details";
 
 @Component({
   selector: 'page-home',
