@@ -81,6 +81,6 @@ export class HomePage {
   }
 
   showProduct(product){
-    this.navCtrl.push(ProductDetailsPage)
+    this.navCtrl.push(ProductDetailsPage, {"product": product});
   }
 }
