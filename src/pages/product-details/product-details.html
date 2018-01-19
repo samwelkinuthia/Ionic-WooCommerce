@@ -18,8 +18,8 @@
       <ion-card-title>
         {{product.title}}
       </ion-card-title>
-      <ion-chip>
-
+      <ion-chip *ngFor="let category of product.categories">
+        <ion-label color="primary">{{ category }}</ion-label>
       </ion-chip>
     </ion-card-content>
   </ion-card>
