@@ -22,7 +22,7 @@ export class HomePage {
     this.WooCommerce = WC ({
       url: 'URL',
       consumerKey: 'KEY',
-      consumerSecret: 'SEC'
+      consumerSecret: 'SECRET'
     });
 
     this.loadMoreProducts(null);
