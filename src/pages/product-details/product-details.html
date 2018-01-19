@@ -8,9 +8,11 @@
 
 
 <ion-content padding>
-  <ion-slides autoplay="3000">
-    <ion-slide *ngFor="let image of product.images">
-      <img [src]="image.src">
-    </ion-slide>
-  </ion-slides>
+  <ion-card>
+    <ion-slides autoplay="3000">
+      <ion-slide *ngFor="let image of product.images">
+        <img [src]="image.src">
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
 </ion-content>
