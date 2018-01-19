@@ -22,6 +22,7 @@
       <ion-chip *ngFor="let category of product.categories">
         <ion-label color="primary">{{ category }}</ion-label>
       </ion-chip>
+      <i [innerHTML]="product.description"></i>
     </ion-card-content>
   </ion-card>
 </ion-content>
