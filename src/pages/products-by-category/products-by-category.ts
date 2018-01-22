@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import * as WC from "woocommerce-api";
+import {ProductDetailsPage} from "../product-details/product-details";
 @Component({
   selector: 'page-products-by-category',
   templateUrl: 'products-by-category.html',
@@ -55,4 +56,8 @@ export class ProductsByCategoryPage {
     })
   }
 
+
+  showProduct(product){
+    this.navCtrl.push(ProductDetailsPage, {"product": product});
+  }
 }
