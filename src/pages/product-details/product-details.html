@@ -23,12 +23,12 @@
       </ion-chip>
       <i [innerHTML]="product.description"></i>
       <button ion-button icon-left block outline color="primary">
-        <ion-icon name="basket"></ion-icon> Basketize!
+        Add to Cart<ion-icon name="basket"></ion-icon>
       </button>
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf="product.attributes.length > 0">
     <ion-card-content>
       <ion-card-title>
         Specs
