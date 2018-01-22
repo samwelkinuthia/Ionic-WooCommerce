@@ -35,7 +35,9 @@
       </ion-card-title>
       <ion-grid>
         <ion-row *ngFor="let spec of product.attributes">
-
+          <ion-col col-4>
+            {{ spec.name }}
+          </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>
