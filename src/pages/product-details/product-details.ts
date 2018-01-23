@@ -33,44 +33,56 @@ export class ProductDetailsPage {
   }
 
   addToCart(product) {
-    this.storage.get('cart').then((data) => {
-      if (data == null || data.length == 0 ) {
+
+    this.storage.get("cart").then((data) => {
+
+      if (data == null || data.length == 0) {
         data = [];
         data.push({
-          'product': product,
-          'amount': parseFloat(product.price),
-          'quantity': 1
-        });
+          "product": product,
+          "quantity": 1,
+          "amount": parseFloat(product.price)
+        })
       } else {
+
         let added = 0;
+
         for (let i = 0; i < data.length; i++) {
+
           if (product.id == data[i].product.id) {
-            console.log("Product already added");
             let quantity = data[i].quantity;
+
+            console.log("Already added to cart!");
+
             data[i].quantity = quantity + 1;
+            data[i].amount = parseFloat(data[i].amount) + parseFloat(data[i].product.price);
             added = 1;
           }
+
         }
 
-        if (added = 0) {
+        if (added == 0) {
           data.push({
-            'product': product,
-            'amount': parseFloat(product.price),
-            'quantity': 1
-          });
+            "product": product,
+            "quantity": 1,
+            "amount": parseFloat(product.price)
+          })
         }
 
-        this.storage.set('cart', data).then((data) => {
-          console.log("Product added to cart");
-          console.log(data);
-          this.toastCtrl.create({
-            message: this.product.name + " added to cart!",
-            duration: 2000
-          }).present();
-        });
       }
-    }, (err) => {
-      console.log(err);
-    });
+
+      this.storage.set("cart", data).then(() => {
+        console.log("Cart Updated");
+        console.log(data);
+
+        this.toastCtrl.create({
+          message: "Cart Updated",
+          duration: 3000
+        }).present();
+
+      })
+    })
+
   }
+
 }
