@@ -47,6 +47,7 @@ export class ProductDetailsPage {
           if (product.id == data[i].product.id) {
             console.log("Product already added");
             let quantity = data[i].quantity;
+            data[i].quantity = quantity + 1;
           }
         }
       }
