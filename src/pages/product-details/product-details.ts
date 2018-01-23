@@ -36,6 +36,11 @@ export class ProductDetailsPage {
     this.storage.get('cart').then((data) => {
       if (data == null || data.length == 0 ) {
         data = [];
+        data.push({
+          'product': product,
+          'amount': product.price,
+          'quantity': 1
+        });
       }
     }, (err) => {
       console.log(err);
