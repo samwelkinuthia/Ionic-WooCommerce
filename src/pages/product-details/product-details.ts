@@ -53,7 +53,11 @@ export class ProductDetailsPage {
         }
 
         if (added = 0) {
-
+          data.push({
+            'product': product,
+            'amount': parseFloat(product.price),
+            'quantity': 1
+          });
         }
       }
     }, (err) => {
