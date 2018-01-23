@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../app/app.scss">
 <ion-header>
 
   <ion-navbar>
@@ -51,6 +52,14 @@
       <ion-card-title>
         Reviews
       </ion-card-title>
+
+      <ion-grid>
+        <ion-row *ngFor="let review of reviews">
+          <ion-col col-4>
+            <b>{{ review.reviewer_name }}</b><br>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>
