@@ -31,4 +31,8 @@ export class ProductDetailsPage {
       console.log(err)
     });
   }
+
+  addToCart(product) {
+
+  }
 }
