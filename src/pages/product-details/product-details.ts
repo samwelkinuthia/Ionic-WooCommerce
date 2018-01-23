@@ -33,6 +33,10 @@ export class ProductDetailsPage {
   }
 
   addToCart(product) {
-
+    this.storage.get('cart').then((data) => {
+      console.log(data);
+    }, (err) => {
+      console.log(err);
+    })
   }
 }
