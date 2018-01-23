@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import * as WC from 'woocommerce-api';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-product-details',
   templateUrl: 'product-details.html',
 })
+
 export class ProductDetailsPage {
   product: any;
   reviews: any[] = [];
