@@ -8,7 +8,7 @@ import * as WC from 'woocommerce-api';
 })
 export class ProductDetailsPage {
   product: any;
-  reviews: any[];
+  reviews: any[] = [];
   WooCommerce: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
