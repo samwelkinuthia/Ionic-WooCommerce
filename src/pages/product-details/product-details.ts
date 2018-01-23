@@ -38,7 +38,7 @@ export class ProductDetailsPage {
         data = [];
         data.push({
           'product': product,
-          'amount': product.price,
+          'amount': parseFloat(product.price),
           'quantity': 1
         });
       }
