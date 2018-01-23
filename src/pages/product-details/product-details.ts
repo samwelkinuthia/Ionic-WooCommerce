@@ -21,7 +21,7 @@ export class ProductDetailsPage {
       consumerSecret: 'SECRET'
     });
 
-    this.WC.getAsync('products/' + this.product.id + '/reviews').then((data) => {
+    this.WooCommerce.getAsync('products/' + this.product.id + '/reviews').then((data) => {
       console.log(JSON.parse(data.body))
     }, (err) => {
       console.log(err)
