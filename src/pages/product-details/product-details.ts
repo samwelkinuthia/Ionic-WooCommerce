@@ -63,6 +63,10 @@ export class ProductDetailsPage {
         this.storage.set('cart', data).then((data) => {
           console.log("Product added to cart");
           console.log(data);
+          this.toastCtrl.create({
+            message: this.product.name + " added to cart!",
+            duration: 2000
+          }).present();
         });
       }
     }, (err) => {
