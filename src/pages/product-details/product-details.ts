@@ -43,6 +43,9 @@ export class ProductDetailsPage {
         });
       } else {
         let added = 0;
+        for (let i = 0; i < data.length; i++) {
+
+        }
       }
     }, (err) => {
       console.log(err);
