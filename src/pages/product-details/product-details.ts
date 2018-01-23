@@ -22,7 +22,9 @@ export class ProductDetailsPage {
     });
 
     this.WooCommerce.getAsync('products/' + this.product.id + '/reviews').then((data) => {
-      console.log(JSON.parse(data.body))
+      // console.log(JSON.parse(data.body))
+      this.reviews = JSON.parse(data.body).product_reviews;
+      console.log(this.reviews);
     }, (err) => {
       console.log(err)
     });
