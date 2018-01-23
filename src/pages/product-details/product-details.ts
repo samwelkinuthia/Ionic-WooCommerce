@@ -13,7 +13,7 @@ export class ProductDetailsPage {
   reviews: any[] = [];
   WooCommerce: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
     this.product = this.navParams.get("product");
     console.log(this.product);
 
