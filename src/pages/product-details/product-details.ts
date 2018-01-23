@@ -48,6 +48,7 @@ export class ProductDetailsPage {
             console.log("Product already added");
             let quantity = data[i].quantity;
             data[i].quantity = quantity + 1;
+            added = 1;
           }
         }
       }
