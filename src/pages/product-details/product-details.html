@@ -20,7 +20,7 @@
         <ion-label color="primary">{{ category }}</ion-label>
       </ion-chip> <ion-icon name="checkmark-circle" float-right></ion-icon>
       <i [innerHTML]="product.description"></i>
-      <button ion-button icon-left block outline color="primary">
+      <button ion-button icon-left block outline color="primary" (click)="addToCart(product)">
         Add to Cart<ion-icon name="basket"></ion-icon>
       </button>
     </ion-card-content>
