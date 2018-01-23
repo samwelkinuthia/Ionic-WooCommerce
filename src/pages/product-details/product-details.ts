@@ -61,7 +61,8 @@ export class ProductDetailsPage {
         }
 
         this.storage.set('cart', data).then((data) => {
-
+          console.log("Product added to cart");
+          console.log(data);
         });
       }
     }, (err) => {
