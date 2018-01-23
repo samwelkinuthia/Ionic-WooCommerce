@@ -34,7 +34,9 @@ export class ProductDetailsPage {
 
   addToCart(product) {
     this.storage.get('cart').then((data) => {
-      console.log(data);
+      if (data == null || data.length == 0 ) {
+
+      }
     }, (err) => {
       console.log(err);
     })
