@@ -59,9 +59,13 @@ export class ProductDetailsPage {
             'quantity': 1
           });
         }
+
+        this.storage.set('cart', data).then((data) => {
+
+        });
       }
     }, (err) => {
       console.log(err);
-    })
+    });
   }
 }
