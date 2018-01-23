@@ -41,6 +41,8 @@ export class ProductDetailsPage {
           'amount': parseFloat(product.price),
           'quantity': 1
         });
+      } else {
+        let added = 0;
       }
     }, (err) => {
       console.log(err);
