@@ -51,6 +51,10 @@ export class ProductDetailsPage {
             added = 1;
           }
         }
+
+        if (added = 0) {
+
+        }
       }
     }, (err) => {
       console.log(err);
