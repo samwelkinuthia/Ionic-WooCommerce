@@ -9,6 +9,7 @@ import { MenuPage } from "../pages/menu/menu";
 import { ProductsByCategoryPage } from "../pages/products-by-category/products-by-category";
 import { ProductDetailsPage } from "../pages/product-details/product-details";
 import { IonicStorageModule } from "@ionic/storage";
+import { CartPage } from "../pages/cart/cart";
 
 @NgModule({
   declarations: [
