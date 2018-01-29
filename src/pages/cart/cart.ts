@@ -7,8 +7,12 @@ import { Storage } from "@ionic/storage";
   templateUrl: 'cart.html',
 })
 export class CartPage {
+  products: any[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+    this.storage.ready().then(() => {
+
+    });
   }
 
   ionViewDidLoad() {
