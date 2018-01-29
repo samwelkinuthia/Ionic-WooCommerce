@@ -12,12 +12,10 @@ export class CartPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
     this.storage.ready().then(() => {
-
+      this.storage.get('cart').then((data) => {
+        this.cartItems = data;
+        console.log(this.cartItems);
+      });
     });
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CartPage');
-  }
-
 }
