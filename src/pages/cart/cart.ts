@@ -15,6 +15,10 @@ export class CartPage {
       this.storage.get('cart').then((data) => {
         this.cartItems = data;
         console.log(this.cartItems);
+
+        // for (let i = 0; i < this.cartItems.length; i++) {
+        //   console.log(this.cartItems[i]);
+        // }
       });
     });
   }
