@@ -17,7 +17,8 @@ import { CartPage } from "../pages/cart/cart";
     HomePage,
     MenuPage,
     ProductsByCategoryPage,
-    ProductDetailsPage
+    ProductDetailsPage,
+    CartPage
   ],
   imports: [
     BrowserModule,
