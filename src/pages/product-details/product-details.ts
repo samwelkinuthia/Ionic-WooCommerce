@@ -87,6 +87,7 @@ export class ProductDetailsPage {
   }
   // FOR THE USER TO VIEW ITEMS IN HIS/HER CART
   openCart() {
+    this.modalCtrl.create(CartPage)
     console.log("function works");
   }
 
