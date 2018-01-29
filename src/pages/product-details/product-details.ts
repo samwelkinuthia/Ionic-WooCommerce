@@ -85,4 +85,8 @@ export class ProductDetailsPage {
 
   }
 
+  openCart() {
+    console.log("function works");
+  }
+
 }
