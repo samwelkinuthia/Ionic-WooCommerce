@@ -31,7 +31,7 @@ export class ProductDetailsPage {
       console.log(err)
     });
   }
-
+  // FOR THE USER TO ADD A PARTICULAR PRODUCT TO THEIR CART
   addToCart(product) {
 
     this.storage.get("cart").then((data) => {
@@ -84,7 +84,7 @@ export class ProductDetailsPage {
     })
 
   }
-
+  // FOR THE USER TO VIEW ITEMS IN HIS/HER CART
   openCart() {
     console.log("function works");
   }
