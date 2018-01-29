@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import * as WC from 'woocommerce-api';
 import { Storage } from '@ionic/storage';
+import { CartPage } from "../cart/cart";
 
 @Component({
   selector: 'page-product-details',
