@@ -7,7 +7,9 @@ import { Storage } from "@ionic/storage";
   templateUrl: 'cart.html',
 })
 export class CartPage {
+  // selected cart items
   cartItems: any[] = [];
+  //total cost of the items
   total: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
