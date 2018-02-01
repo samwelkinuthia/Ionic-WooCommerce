@@ -9,19 +9,31 @@ import { Storage } from "@ionic/storage";
 export class CartPage {
   // selected cart items
   cartItems: any[] = [];
-  //total cost of the items
+  // total cost of the items
   total: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
-    this.storage.ready().then(() => {
-      this.storage.get('cart').then((data) => {
-        this.cartItems = data;
-        console.log(this.cartItems);
 
-        // for (let i = 0; i < this.cartItems.length; i++) {
-        //   console.log(this.cartItems[i]);
-        // }
+    this.storage.ready().then(() => {
+
+      this.storage.get('cart').then((data) => {
+
+        this.cartItems = data;
+
+        // console.log(this.cartItems);
+      if (this.cartItems.length > 0) {
+
+        this.cartItems.forEach((item, index) => {
+
+          this.total = this.total + ((item.product.price) * item.quantity)
+
+          console.log(this.total)
+        });
+      }
+
       });
+
     });
+
   }
 }
