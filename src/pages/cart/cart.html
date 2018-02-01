@@ -8,6 +8,7 @@
 
 
 <ion-content>
+
   <ion-card>
     <ion-grid>
       <ion-row>
@@ -20,16 +21,37 @@
   </ion-card>
 
   <ion-list>
-    <ion-item *ngFor="let item of cartItems; let i = index" no-padding>
+    <ion-item *ngFor="let item of cartItems; let i = index">
       <ion-thumbnail item-left>
         <img [src]="item.product.featured_src" style="width: 60px !important; height: 60px !important;" alt="">
       </ion-thumbnail>
-      <h2>{{ item.product.title }}</h2>
+      <h4>{{ item.product.title }}</h4>
       <p>{{ item.product.price }} * {{ item.quantity }}</p>
       <button ion-button clear item-right color="primary" (click)="removeFromCart(item, i)">
-        <ion-icon name="trash" color="danger"></ion-icon>
+        <ion-icon name="close-circle" color="danger"></ion-icon>
       </button>
     </ion-item>
   </ion-list>
+
+  <ion-grid>
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2>
+
+          </ion-col>
+          <ion-col col-2>
+
+          </ion-col>
+          <ion-col col-2>
+
+          </ion-col>
+          <ion-col col-2>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-grid>
 
 </ion-content>
