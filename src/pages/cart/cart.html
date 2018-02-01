@@ -7,10 +7,20 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>Your Cart Description</ion-col>
+      </ion-row>
+      <ion-row [hidden]="!emptyMessage">
+        <ion-col> Your haven't added stuff to your cart yet! </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 
   <ion-list>
-    <ion-item *ngFor="let item of cartItems; let i = index">
+    <ion-item *ngFor="let item of cartItems; let i = index" no-padding>
       <ion-thumbnail item-left>
         <img [src]="item.product.featured_src" style="width: 60px !important; height: 60px !important;" alt="">
       </ion-thumbnail>
