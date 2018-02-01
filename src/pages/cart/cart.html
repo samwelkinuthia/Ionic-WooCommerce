@@ -16,7 +16,9 @@
       </ion-thumbnail>
       <h2>{{item.product.title}}</h2>
       <h4>Cost: {{item.product.price}} * {{item.product.quantity}}</h4>
-      <button ion-button clear item-right color="primary"></button>
+      <button ion-button clear item-right color="primary" (click)="removeFromCart(item, i)">
+        
+      </button>
     </ion-item>
   </ion-list>
 
