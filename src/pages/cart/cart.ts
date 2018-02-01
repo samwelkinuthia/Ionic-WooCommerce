@@ -31,7 +31,7 @@ export class CartPage {
           console.log(this.total)
         });
       } else {
-        let message: any = "sorry, Empty Cart!"
+        let emptyMessage = true;
 
       }
 
