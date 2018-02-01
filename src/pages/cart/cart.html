@@ -7,15 +7,15 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content padding>
 
   <ion-list>
     <ion-item *ngFor="let item of cartItems; let i = index">
       <ion-thumbnail item-left>
-        <img [src]="item.product.featured_src" alt="">
+        <img [src]="item.product.featured_src" style="width: 60px !important; height: 60px !important;" alt="">
       </ion-thumbnail>
       <h2>{{ item.product.title }}</h2>
-      <h4>Ksh: {{ item.product.price }} * {{ item.quantity }}</h4>
+      <p>{{ item.product.price }} * {{ item.quantity }}</p>
       <button ion-button clear item-right color="primary" (click)="removeFromCart(item, i)">
         <ion-icon name="trash" color="danger"></ion-icon>
       </button>
