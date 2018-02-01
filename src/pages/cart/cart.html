@@ -10,13 +10,12 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let item of cartItems">
+    <ion-item *ngFor="let item of cartItems; let i = index">
       <ion-thumbnail item-left>
         <img [src]="item.product.featured_src" alt="">
       </ion-thumbnail>
       <h2>{{ item.product.title }}</h2>
-      <h4>Ksh: {{ item.product.price }}</h4>
-      <h4>Quantity: {{ item.quantity }}</h4>
+      <h4>Ksh: {{ item.product.price }} * {{ item.quantity }}</h4>
       <button ion-button clear item-right color="primary" (click)="removeFromCart(item, i)">
         <ion-icon name="trash" color="danger"></ion-icon>
       </button>
