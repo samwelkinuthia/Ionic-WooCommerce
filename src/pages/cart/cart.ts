@@ -16,6 +16,7 @@ export class CartPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
 
     this.total = 0.0;
+
     this.storage.ready().then(() => {
 
       this.storage.get('cart').then((data) => {

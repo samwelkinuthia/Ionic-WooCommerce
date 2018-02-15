@@ -13,8 +13,11 @@ export class ProductsByCategoryPage {
   page: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+
     this.page = 1;
+
     this.category = this.navParams.get("category");
+
     this.WooCommerce = WC ({
       url: 'URL',
       consumerKey: 'KEY',
@@ -22,8 +25,11 @@ export class ProductsByCategoryPage {
     });
 
     this.WooCommerce.getAsync("products?filter[category]=" + this.category.slug).then((data) => {
+
       console.log(data);
+
       this.products = JSON.parse(data.body).products;
+
     }, (err) => {
       console.log(err);
     });
@@ -36,23 +42,32 @@ export class ProductsByCategoryPage {
 
   loadMoreProducts(event){
     this.page++;
+
     console.log("loading page.. " + this.page);
 
     this.WooCommerce.getAsync("products?filter[category]=" + this.category.slug + "&page=" + this.page).then((data) => {
+
       let temp = JSON.parse((data.body).products);
+
       this.products = this.products.concat(JSON.parse(data.body).products);
+
       console.log(this.products);
+
       event.complete();
 
       if (temp.length < 10)
+
         event.enable(false);
 
       this.toastCtrl.create({
         message: "No more products in " + this.category + " category.",
         duration: 2000
       }).present();
+
     }, (err) => {
+
       console.log(err);
+
     })
   }
 

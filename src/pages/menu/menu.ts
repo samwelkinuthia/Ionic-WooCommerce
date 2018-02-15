@@ -15,7 +15,9 @@ export class MenuPage {
   @ViewChild('content') childCtrl: NavController;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
     this.homePage = HomePage;
+
     this.categories = [];
 
     this.WooCommerce = WC ({
@@ -25,10 +27,12 @@ export class MenuPage {
     });
 
     this.WooCommerce.getAsync("products/categories").then((data) => {
+
       // console.log(JSON.parse(data.body).product_categories);
       let temp:any[] = JSON.parse(data.body).product_categories;
 
       for (let i = 0; i < temp.length; i++){
+
         if(temp[i].parent == 0){
           // USING A SINGLE ICON FOR ALL CATEGORIES...COZ OF TIME AND STUFF REASONS :D
           temp[i].icon = "arrow-dropright-circle";
@@ -36,10 +40,14 @@ export class MenuPage {
           // if (temp[i].slug == "clothing"){
           //   temp[i].icon = "shirt";
           // }
+
           this.categories.push(temp[i])
         }
+
       }
+
       console.log(this.categories);
+
     }, (err) => {
       console.log(err);
     })
