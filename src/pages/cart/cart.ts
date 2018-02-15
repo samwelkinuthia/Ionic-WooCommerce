@@ -59,5 +59,8 @@ export class CartPage {
     let price = item.product.price;
     let quantity = item.quantity;
 
+    this.cartItems.splice(i, 1);
+
+
   }
 }
