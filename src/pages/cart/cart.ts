@@ -73,8 +73,8 @@ export class CartPage {
 
   }
 
-  closeModal() {
-
+  closeCart() {
+    this.viewController.dismiss();
   }
 
 }
