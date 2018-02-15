@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 
 @Component({
@@ -15,7 +15,7 @@ export class CartPage {
 
   emptyMessage: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public viewController: ViewController) {
 
     this.total = 0.0;
 
@@ -74,7 +74,7 @@ export class CartPage {
   }
 
   closeModal() {
-    
+
   }
 
 }
