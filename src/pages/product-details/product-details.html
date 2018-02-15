@@ -31,7 +31,7 @@
       <i [innerHTML]="product.description"></i>
 
       <button ion-button icon-left block outline color="primary" (click)="addToCart(product)">
-        Add to Cart<ion-icon name="basket"></ion-icon>
+        <ion-icon name="basket" left></ion-icon> Add to Cart for Ksh {{product.price}}
       </button>
 
     </ion-card-content>
