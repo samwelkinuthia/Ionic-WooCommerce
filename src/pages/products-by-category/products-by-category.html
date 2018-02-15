@@ -11,7 +11,7 @@
 
 
 <ion-content>
-  <ion-list *ngIf="product; else emptyCategory">
+  <ion-list>
     <ion-item *ngFor="let product of products" text-wrap (click)="showProduct(product)">
       <ion-thumbnail item-left>
         <img [src]="product.featured_src" alt="">
@@ -26,13 +26,6 @@
       </button>
     </ion-item>
   </ion-list>
-  <ng-template #emptyCategory>
-    <ion-row>
-      <ion-card padding align-items-center>
-        <h3>Sorry, No products in {{category.name}}</h3>
-      </ion-card>
-    </ion-row>
-  </ng-template>
 
   <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>

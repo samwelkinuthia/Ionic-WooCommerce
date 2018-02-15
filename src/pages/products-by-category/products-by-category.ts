@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import * as WC from "woocommerce-api";
 import {ProductDetailsPage} from "../product-details/product-details";
+
 @Component({
   selector: 'page-products-by-category',
   templateUrl: 'products-by-category.html',
 })
+
 export class ProductsByCategoryPage {
   WooCommerce: any;
   category:any;
@@ -41,6 +43,7 @@ export class ProductsByCategoryPage {
   }
 
   loadMoreProducts(event){
+
     this.page++;
 
     console.log("loading page.. " + this.page);
