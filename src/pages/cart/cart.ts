@@ -56,5 +56,8 @@ export class CartPage {
 
     console.log("works");
 
+    let price = item.product.price;
+    let quantity = item.quantity;
+
   }
 }
