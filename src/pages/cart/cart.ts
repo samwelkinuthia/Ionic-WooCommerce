@@ -51,4 +51,10 @@ export class CartPage {
     });
 
   }
+
+  removeFromCart(item, i) {
+
+    console.log("works");
+
+  }
 }
