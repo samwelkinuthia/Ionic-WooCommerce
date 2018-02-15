@@ -61,6 +61,12 @@ export class CartPage {
 
     this.cartItems.splice(i, 1);
 
+    this.storage.set("cart", this.cartItems).then(() => {
+
+      this.total = this.total - (parseInt(price) * quantity);
+
+    })
+
 
   }
 }
