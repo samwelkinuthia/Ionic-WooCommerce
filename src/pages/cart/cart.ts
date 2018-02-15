@@ -9,8 +9,10 @@ import { Storage } from "@ionic/storage";
 export class CartPage {
   // selected cart items
   cartItems: any[] = [];
+
   // total cost of the items
   total: any;
+
   emptyMessage: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
@@ -25,13 +27,18 @@ export class CartPage {
 
         if (this.cartItems.length > 0) {
 
-        this.cartItems.forEach((item, index) => {
+          this.cartItems.forEach((item, index) => {
 
-          this.total = this.total + ((item.product.price) * item.quantity)
+            console.log(item.product);
 
-          console.log(this.total)
+            console.log(item.quantity * parseInt(item.product.price));
 
-        });
+            this.total = this.total + (item.quantity * parseInt(item.product.price));
+
+          });
+
+          console.log(this.total);
+
 
       } else {
 
