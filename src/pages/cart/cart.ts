@@ -65,8 +65,12 @@ export class CartPage {
 
       this.total = this.total - (parseInt(price) * quantity);
 
-    })
+    });
 
+    if (this.cartItems.length == 0)
+
+      this.emptyMessage = true;
 
   }
+
 }
