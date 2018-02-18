@@ -42,7 +42,7 @@ export class CartPage {
 
       } else {
 
-        let emptyMessage = true;
+        this.emptyMessage = true;
 
       }
 
