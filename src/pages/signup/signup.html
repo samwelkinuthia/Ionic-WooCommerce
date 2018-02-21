@@ -11,9 +11,31 @@
 <ion-content>
   <ion-list>
     <ion-item-divider color="primary">Personal details</ion-item-divider>
+
     <ion-item>
       <ion-label>First Name</ion-label>
       <ion-input type="text" (ngModel)="newUser.first_name"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-input type="text" (ngModel)="newUser.last_name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input type="number" (ngModel)="newUser.phone_number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" (ngModel)="newUser.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="text" (ngModel)="newUser.email_confirm"></ion-input>
+    </ion-item>
+
   </ion-list>
 </ion-content>
