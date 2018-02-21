@@ -2,12 +2,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>signup</ion-title>
+    <ion-title>Customer signup</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <ion-item-divider color="primary">Personal details</ion-item-divider>
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input type="text" ngModel="newUser.first_name"></ion-input>
+    </ion-item>
+  </ion-list>
 </ion-content>
