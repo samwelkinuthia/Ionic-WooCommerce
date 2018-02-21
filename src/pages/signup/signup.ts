@@ -10,6 +10,8 @@ export class SignupPage {
   newUser: any = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.newUser.billing_address = {};
+    this.newUser.shippingAddress = {};
   }
 
   ionViewDidLoad() {
