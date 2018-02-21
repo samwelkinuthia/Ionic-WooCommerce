@@ -14,28 +14,32 @@
 
     <ion-item>
       <ion-label>First Name</ion-label>
-      <ion-input type="text" (ngModel)="newUser.first_name"></ion-input>
+      <ion-input type="text" [(ngModel)]="newUser.first_name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Last Name</ion-label>
-      <ion-input type="text" (ngModel)="newUser.last_name"></ion-input>
+      <ion-input type="text" [(ngModel)]="newUser.last_name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Phone Number</ion-label>
-      <ion-input type="number" (ngModel)="newUser.phone_number"></ion-input>
+      <ion-input type="number" [(ngModel)]="newUser.phone_number"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-input type="text" (ngModel)="newUser.email"></ion-input>
+      <ion-input type="text" [(ngModel)]="newUser.email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Password</ion-label>
-      <ion-input type="text" (ngModel)="newUser.email_confirm"></ion-input>
+      <ion-input type="text" [(ngModel)]="newUser.email_confirm"></ion-input>
     </ion-item>
 
+    <ion-item-divider color="primary">Billing</ion-item-divider>
+
+    <ion-label>Address</ion-label>
+    <ion-textarea type="text" maxlength="50" [(ngModel)]="newUser.billing_address.address"></ion-textarea>
   </ion-list>
 </ion-content>
