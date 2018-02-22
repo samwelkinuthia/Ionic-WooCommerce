@@ -10,6 +10,8 @@
 
 <ion-content>
   <ion-list>
+
+    <!--PERSONAL DETAILS-->
     <ion-item-divider color="primary">Personal details</ion-item-divider>
 
     <ion-item>
@@ -42,12 +44,21 @@
       <ion-input type="text" [(ngModel)]="newUser.password_confirm"></ion-input>
     </ion-item>
 
+    <!--BILLING DETAILS-->
+
     <ion-item-divider color="primary">Billing</ion-item-divider>
 
     <ion-item>
       <ion-label>Address</ion-label>
       <ion-textarea type="text" maxlength="50" [(ngModel)]="newUser.billing_address.address"></ion-textarea>
     </ion-item>
+
+    <ion-item>
+      <ion-label>Country</ion-label>
+      <ion-option value="kenya" [(ngModel)]="newUser.billing_address.country" [selected]="true">Kenya</ion-option>
+    </ion-item>
+
+
 
 
   </ion-list>
