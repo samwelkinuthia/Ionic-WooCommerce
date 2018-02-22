@@ -8,10 +8,12 @@ import { NavController, NavParams } from 'ionic-angular';
 export class SignupPage {
 
   newUser: any = {};
+  towns: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.newUser.billing_address = {};
     this.newUser.shippingAddress = {};
+    this.towns = ['Nairobi', 'Mombasa', 'Kisumu'];
   }
 
   ionViewDidLoad() {
