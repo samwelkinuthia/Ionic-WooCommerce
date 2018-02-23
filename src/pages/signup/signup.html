@@ -54,19 +54,17 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Country</ion-label>
-      <ion-select [(ngModel)]="newUser.billing_address.country">
-        <ion-option value="kenya" [selected]="true">Kenya</ion-option>
+      <ion-label>Town</ion-label>
+      <ion-select [(ngModel)]="newUser.billing_address.town">
+        <ion-option value="Nairobi">Nairobi</ion-option>
+        <ion-option value="Nakuru">Nakuru</ion-option>
+        <ion-option value="Kisumu">Kisumu</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label>Town</ion-label>
-      <ion-select [(ngModel)]="newUser.billing_address.town">
-        <ion-option [value]="Nairobi">Nairobi</ion-option>
-        <ion-option [value]="Eldoret">Eldoret</ion-option>
-        <ion-option [value]="Kisumu">Kisumu</ion-option>
-      </ion-select>
+      <ion-label>Estate</ion-label>
+      <ion-input type="text" maxlength="10" [(ngModel)]="newUser.billing_address.location"></ion-input>
     </ion-item>
 
 
