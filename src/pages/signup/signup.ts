@@ -16,10 +16,14 @@ export class SignupPage {
     this.similar = false;
   }
 
+  // SET VISIBILITY FOR SHIPPING DETAILS OR NOT
   setSimilar() {
-
     this.similar = !this.similar;
+  }
 
+  // Collect filled data and sign up user
+   signUp() {
+    console.log("Im working");
   }
 
 }
