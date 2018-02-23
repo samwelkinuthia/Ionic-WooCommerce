@@ -18,4 +18,8 @@ export class SignupPage {
     console.log('ionViewDidLoad SignupPage');
   }
 
+  setSimilar() {
+    console.log("works");
+  }
+
 }
