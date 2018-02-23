@@ -15,12 +15,10 @@ export class SignupPage {
     this.newUser.shippingAddress = {};
     this.similar = false;
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
-  }
-
+  
   setSimilar() {
+
+    this.similar = !this.similar;
 
   }
 
