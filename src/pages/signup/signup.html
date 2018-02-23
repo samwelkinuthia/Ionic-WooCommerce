@@ -67,6 +67,11 @@
       <ion-input type="text" maxlength="10" [(ngModel)]="newUser.billing_address.location"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label>Same Shipping?</ion-label>
+      <ion-checkbox (ionChange)="setSimilar()"></ion-checkbox>
+    </ion-item>
+
     <!--SHIPPING DETAILS-->
 
     <ion-item-divider color="primary">Shipping</ion-item-divider>
