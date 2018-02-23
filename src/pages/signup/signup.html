@@ -67,6 +67,23 @@
       <ion-input type="text" maxlength="10" [(ngModel)]="newUser.billing_address.location"></ion-input>
     </ion-item>
 
+    <!--SHIPPING DETAILS-->
+
+    <ion-item-divider color="primary">Shipping</ion-item-divider>
+
+    <ion-item *ngIf="!similar">
+      <ion-label>Address</ion-label>
+      <ion-textarea type="text" maxlength="50" [(ngModel)]="newUser.shippingAddress.address"></ion-textarea>
+    </ion-item>
+
+    <ion-item *ngIf="!similar">
+      <ion-label>Town</ion-label>
+      <ion-select [(ngModel)]="newUser.billing_address.town">
+        <ion-option value="Nairobi">Nairobi</ion-option>
+        <ion-option value="Nakuru">Nakuru</ion-option>
+        <ion-option value="Kisumu">Kisumu</ion-option>
+      </ion-select>
+    </ion-item>
 
 
   </ion-list>
