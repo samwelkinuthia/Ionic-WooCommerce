@@ -15,7 +15,7 @@ export class SignupPage {
     this.newUser.shippingAddress = {};
     this.similar = false;
   }
-  
+
   setSimilar() {
 
     this.similar = !this.similar;
