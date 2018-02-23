@@ -58,7 +58,7 @@ export class SignupPage {
           validEmail = true;
 
           this.toastCtrl.create({
-            message: 'New User Detected :)',
+            message: 'New User Detected. Proceed :)',
             duration: 3000
           }).present();
 
@@ -67,8 +67,8 @@ export class SignupPage {
           validEmail = false;
 
           this.toastCtrl.create({
-            message: 'Already signed in',
-            duration: 3000
+            message: 'Email already Registered',
+            showCloseButton: true
           }).present();
 
         }
@@ -81,6 +81,10 @@ export class SignupPage {
 
       validEmail = false;
       console.log(validEmail);
+      this.toastCtrl.create({
+        message: 'Invalid email',
+        showCloseButton: true
+      }).present();
     }
   }
 
