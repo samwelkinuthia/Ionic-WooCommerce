@@ -74,7 +74,7 @@
 
     <!--SHIPPING DETAILS-->
 
-    <ion-item-divider color="primary">Shipping</ion-item-divider>
+    <ion-item-divider color="primary" *ngIf="!similar">Shipping</ion-item-divider>
 
     <ion-item *ngIf="!similar">
       <ion-label>Address</ion-label>
