@@ -50,7 +50,7 @@ export class SignupPage {
       // console.log("VALID")
 
       this.WooCommerce.getAsync('customers/email/' + this.newUser.email).then((data) => {
-        console.log(data);
+        console.log(JSON.parse(data.body));
       });
 
     }
