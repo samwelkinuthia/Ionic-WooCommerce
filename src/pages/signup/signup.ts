@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import * as WC from "woocommerce-api";
+
+
 
 @Component({
   selector: 'page-signup',
@@ -9,11 +12,20 @@ export class SignupPage {
 
   newUser: any = {};
   similar: boolean;
+  WooCommerce: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
     this.newUser.billing_address = {};
     this.newUser.shippingAddress = {};
     this.similar = false;
+
+    this.WooCommerce = WC ({
+      url: 'URL',
+      consumerKey: 'KEY',
+      consumerSecret: 'SECRET'
+    });
+
   }
 
   // SET VISIBILITY FOR SHIPPING DETAILS OR NOT
@@ -35,7 +47,9 @@ export class SignupPage {
     let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (reg.test(this.newUser.email)) {
-
+        console.log("VALID")
+    } else {
+      console.log("INVALD")
     }
 
   }
