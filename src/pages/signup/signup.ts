@@ -54,13 +54,23 @@ export class SignupPage {
         let res = JSON.parse(data.body);
 
         if (res.errors) {
+
           validEmail = true;
+
         } else {
+
           validEmail = false;
+
         }
+
+        console.log(validEmail);
 
       });
 
+    } else {
+
+      validEmail = false;
+      console.log(validEmail);
     }
   }
 
