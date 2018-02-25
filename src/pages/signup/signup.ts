@@ -58,6 +58,10 @@ export class SignupPage {
         "town": this.newUser.shippingAddress.town
       }
     }
+
+    if (this.similar) {
+      this.newUser.billing_address = this.newUser.shippingAddress;
+    }
   }
 
   // check email: if valid ? if already exists
