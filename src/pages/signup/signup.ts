@@ -42,12 +42,20 @@ export class SignupPage {
     };
 
     customerData.customer = {
-      "": ,
+      "first_name": this.newUser.first_name,
+      "last_name": this.newUser.last_name,
+      "phone_number": this.newUser.phone_number,
+      "email": this.newUser.email,
+      "passowrd": this.newUser.password,
+      "password_confirm": this.newUser.password_confirm,
       "billing_address" : {
-
+        "address": this.newUser.billing_address.address,
+        "town": this.newUser.billing_address.town,
+        "estate": this.newUser.billing_address.estate
       },
       "shippingAddress": {
-
+        "address": this.newUser.shippingAddress.address,
+        "town": this.newUser.shippingAddress.town
       }
     }
   }
@@ -94,11 +102,14 @@ export class SignupPage {
     } else {
 
       validEmail = false;
+
       console.log(validEmail);
+
       this.toastCtrl.create({
         message: 'Invalid email',
         showCloseButton: true
       }).present();
+
     }
   }
 
