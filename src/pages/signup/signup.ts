@@ -39,6 +39,16 @@ export class SignupPage {
 
     let customerData = {
       customer : {}
+    };
+
+    customerData.customer = {
+      "": ,
+      "billing_address" : {
+
+      },
+      "shippingAddress": {
+
+      }
     }
   }
 
