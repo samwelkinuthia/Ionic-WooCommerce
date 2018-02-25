@@ -36,6 +36,10 @@ export class SignupPage {
   // Collect filled data and sign up user
   signUp() {
     console.log("Im working");
+
+    let customerData = {
+      customer : {}
+    }
   }
 
   // check email: if valid ? if already exists
