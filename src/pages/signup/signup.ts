@@ -37,10 +37,12 @@ export class SignupPage {
   signUp() {
     console.log("Im working");
 
+    //for storing customer data
     let customerData = {
       customer : {}
     };
 
+    //fetch customer details
     customerData.customer = {
       "first_name": this.newUser.first_name,
       "last_name": this.newUser.last_name,
@@ -57,11 +59,22 @@ export class SignupPage {
         "address": this.newUser.shippingAddress.address,
         "town": this.newUser.shippingAddress.town
       }
-    }
+    };
 
+    // set billing address equal to shipping address
     if (this.similar) {
       this.newUser.billing_address = this.newUser.shippingAddress;
     }
+
+
+    //post to woocommerce!
+    this.WooCommerce.postAsync('customer', customerData).then((data) => {
+      console.log(JSON.parse(data.body));
+    }, (err) => {
+      console.log(err);
+    });
+
+
   }
 
   // check email: if valid ? if already exists
