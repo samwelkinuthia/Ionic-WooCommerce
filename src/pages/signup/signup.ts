@@ -48,7 +48,7 @@ export class SignupPage {
       "last_name": this.newUser.last_name,
       "phone_number": this.newUser.phone_number,
       "email": this.newUser.email,
-      "passowrd": this.newUser.password,
+      "password": this.newUser.password,
       "password_confirm": this.newUser.password_confirm,
       "billing_address" : {
         "address": this.newUser.billing_address.address,
