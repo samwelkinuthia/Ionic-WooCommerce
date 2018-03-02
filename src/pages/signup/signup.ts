@@ -68,7 +68,7 @@ export class SignupPage {
 
 
     //post to woocommerce!
-    this.WooCommerce.postAsync('customer', customerData).then((data) => {
+    this.WooCommerce.postAsync('customers', customerData).then((data) => {
       console.log(JSON.parse(data.body));
     }, (err) => {
       console.log(err);
