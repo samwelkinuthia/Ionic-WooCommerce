@@ -29,52 +29,9 @@ export class SignupPage {
   }
 
   // SET VISIBILITY FOR SHIPPING DETAILS OR NOT
+
   setSimilar() {
     this.similar = !this.similar;
-  }
-
-  // Collect filled data and sign up user
-  signUp() {
-    console.log("Im working");
-
-    //for storing customer data
-    let customerData = {
-      customer : {}
-    };
-
-    //fetch customer details
-    customerData.customer = {
-      "first_name": this.newUser.first_name,
-      "last_name": this.newUser.last_name,
-      "phone_number": this.newUser.phone_number,
-      "email": this.newUser.email,
-      "password": this.newUser.password,
-      "password_confirm": this.newUser.password_confirm,
-      "billing_address" : {
-        "address": this.newUser.billing_address.address,
-        "town": this.newUser.billing_address.town,
-        "estate": this.newUser.billing_address.estate
-      },
-      "shippingAddress": {
-        "address": this.newUser.shippingAddress.address,
-        "town": this.newUser.shippingAddress.town
-      }
-    };
-
-    // set billing address equal to shipping address
-    if (this.similar) {
-      this.newUser.billing_address = this.newUser.shippingAddress;
-    }
-
-
-    //post to woocommerce!
-    this.WooCommerce.postAsync('customers', customerData).then((data) => {
-      console.log(JSON.parse(data.body));
-    }, (err) => {
-      console.log(err);
-    });
-
-
   }
 
   // check email: if valid ? if already exists
@@ -128,6 +85,49 @@ export class SignupPage {
       }).present();
 
     }
+  }
+
+  // Collect filled data and sign up user
+
+  signUp() {
+    // console.log("Im working");
+
+    //for storing customer data
+    let customerData = {
+      customer : {}
+    };
+
+    //fetch customer details
+    customerData.customer = {
+      "first_name": this.newUser.first_name,
+      "last_name": this.newUser.last_name,
+      "phone_number": this.newUser.phone_number,
+      "email": this.newUser.email,
+      "password": this.newUser.password,
+      "password_confirm": this.newUser.password_confirm,
+      "billing_address" : {
+        "address": this.newUser.billing_address.address,
+        "town": this.newUser.billing_address.town,
+        "estate": this.newUser.billing_address.estate
+      },
+      "shippingAddress": {
+        "address": this.newUser.shippingAddress.address,
+        "town": this.newUser.shippingAddress.town
+      }
+    };
+
+    // set billing address equal to shipping address
+    if (this.similar) {
+      this.newUser.billing_address = this.newUser.shippingAddress;
+    }
+
+    //post to woocommerce
+    this.WooCommerce.postAsync('customers', customerData).then((data) => {
+      console.log(JSON.parse(data.body));
+    }, (err) => {
+      console.log(err);
+    });
+
   }
 
 }
