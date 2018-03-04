@@ -132,7 +132,7 @@ export class SignupPage {
           title: 'successfully registered',
           subTitle: 'proceed to login',
           buttons: ['Login']
-       });
+       }).present();
 
       }
 
