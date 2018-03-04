@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage} from "../home/home";
 import * as WC from "woocommerce-api";
 import { ProductsByCategoryPage } from "../products-by-category/products-by-category";
+import {SignupPage} from "../signup/signup";
+import {LoginPage} from "../login/login";
 
 @Component({
   selector: 'page-menu',
@@ -53,13 +55,25 @@ export class MenuPage {
     })
 
   }
-  //
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad MenuPage');
-  // }
+
 
   openCategory(category) {
     this.childCtrl.setRoot(ProductsByCategoryPage, {"category": category});
   }
+
+  //for navigations
+
+  openPage(pageName: string) {
+
+    if (pageName == "signup") {
+      this.navCtrl.push(SignupPage);
+    }
+
+    if (pageName == "login") {
+      this.navCtrl.push(LoginPage)
+    }
+
+  }
+
 
 }

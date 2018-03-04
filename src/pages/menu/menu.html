@@ -14,11 +14,25 @@
     </ion-card>
 
     <ion-list>
+
       <ion-item *ngFor="let category of categories" text-wrap (click)="openCategory(category)" menuClose>
         <ion-icon [name]="category.icon" item-left large></ion-icon>
         <h3>{{category.name}}</h3>
         <p>{{category.description}}</p>
       </ion-item>
+
+      <ion-item (click)="openPage('signup')" menuClose>
+        <ion-icon name="md-clipboard" item-left large></ion-icon>
+        <h2>Sign Up</h2>
+        <p>For a new Account</p>
+      </ion-item>
+
+      <ion-item (click)="openPage('login')" menuClose>
+        <ion-icon name="log-in" item-left large></ion-icon>
+        <h2>Login</h2>
+        <p>Email and password</p>
+      </ion-item>
+
     </ion-list>
 
   </ion-content>
