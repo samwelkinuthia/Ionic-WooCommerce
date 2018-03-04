@@ -138,10 +138,6 @@ export class SignupPage {
 
       }
 
-    }, (err) => {
-
-      console.log(err);
-
     });
 
   }
