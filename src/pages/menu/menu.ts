@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage} from "../home/home";
 import * as WC from "woocommerce-api";
 import { ProductsByCategoryPage } from "../products-by-category/products-by-category";
-import {SignupPage} from "../signup/signup";
-import {LoginPage} from "../login/login";
+import { SignupPage } from "../signup/signup";
+import { LoginPage } from "../login/login";
 
 @Component({
   selector: 'page-menu',
