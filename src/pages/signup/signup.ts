@@ -126,6 +126,8 @@ export class SignupPage {
 
       let response = JSON.parse(data.body);
 
+      console.log(response);
+
       if (response.customer) {
 
        this.alertCtrl.create({
