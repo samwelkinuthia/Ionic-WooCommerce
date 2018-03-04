@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import * as WC from "woocommerce-api";
 
 
@@ -14,7 +14,7 @@ export class SignupPage {
   similar: boolean;
   WooCommerce: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController) {
 
     this.newUser.billing_address = {};
     this.newUser.shippingAddress = {};
@@ -123,9 +123,23 @@ export class SignupPage {
 
     //post to woocommerce
     this.WooCommerce.postAsync('customers', customerData).then((data) => {
-      console.log(JSON.parse(data.body));
+
+      let response = JSON.parse(data.body);
+
+      if (response.customer) {
+
+       this.alertCtrl.create({
+          title: 'successfully registered',
+          subTitle: 'proceed to login',
+          buttons: ['Login']
+       });
+
+      }
+
     }, (err) => {
+
       console.log(err);
+
     });
 
   }
