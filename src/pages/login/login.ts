@@ -8,7 +8,18 @@ import { HttpClient } from "@angular/common/http";
 })
 export class LoginPage {
 
+  username: string;
+  password: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+
+    this.username = '';
+    this.password = '';
+
+  }
+
+  login() {
+
   }
 
 
