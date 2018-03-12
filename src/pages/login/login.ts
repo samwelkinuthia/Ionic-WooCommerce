@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { HttpClient } from "@angular/common/http";
 import { Storage } from "@ionic/storage";
 
@@ -12,7 +12,7 @@ export class LoginPage {
   username: string;
   password: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public storage: Storage, public toastCtrl: ToastController) {
 
     this.username = '';
     this.password = '';
@@ -23,8 +23,16 @@ export class LoginPage {
 
     this.http.get('http://www.creative-junk.com/storedemo/api/auth/generate_auth_cookie/?insecure=cool&username=' + this.username + '&password=' + this.password).subscribe((response) => {
 
-      console.log(response);
-      
+      if (response['error']) {
+
+        let res = response['error'];
+
+        this.toastCtrl.create({
+          message: res,
+          showCloseButton: true
+        }).present();
+      }
+
     })
   }
 
