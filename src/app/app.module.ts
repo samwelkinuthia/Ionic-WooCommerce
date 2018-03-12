@@ -12,6 +12,7 @@ import { IonicStorageModule } from "@ionic/storage";
 import { CartPage } from "../pages/cart/cart";
 import { SignupPage } from "../pages/signup/signup";
 import { LoginPage } from "../pages/login/login";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LoginPage } from "../pages/login/login";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
