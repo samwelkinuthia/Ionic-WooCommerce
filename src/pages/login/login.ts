@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'page-login',
@@ -8,7 +8,7 @@ import { HttpClientModule } from "@angular/common/http";
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClientModule) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
   }
 
 
