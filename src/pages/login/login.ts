@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import { HttpClient } from "@angular/common/http";
 import { Storage } from "@ionic/storage";
 
@@ -12,7 +12,7 @@ export class LoginPage {
   username: string;
   password: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public storage: Storage, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public storage: Storage, public toastCtrl: ToastController, public alertCtrl: AlertController) {
 
     this.username = '';
     this.password = '';
@@ -29,9 +29,34 @@ export class LoginPage {
 
         this.toastCtrl.create({
           message: res,
-          showCloseButton: true
+          duration: 5000
         }).present();
+        return;
       }
+
+      this.storage.set('userLogin', response).then((data) => {
+
+        this.alertCtrl.create({
+          title: "Login Successful",
+          message: 'You have successfully logged in. Proceed',
+          buttons: [{
+            text: "OK",
+            handler: () => {
+              if (this.navParams.get('next')) {
+
+                this.navCtrl.push(this.navParams.get('next'));
+
+              } else {
+
+                this.navCtrl.pop();
+
+              }
+            }
+          }]
+
+        }).present();
+
+      })
 
     })
   }
