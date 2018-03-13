@@ -21,16 +21,34 @@
         <p>{{category.description}}</p>
       </ion-item>
 
-      <ion-item (click)="openPage('signup')" menuClose>
+      <ion-item (click)="openPage('signup')" menuClose *ngIf="!loggedIn">
         <ion-icon name="md-clipboard" item-left large></ion-icon>
         <h2>Sign Up</h2>
         <p>For a new Account</p>
       </ion-item>
 
-      <ion-item (click)="openPage('login')" menuClose>
+      <ion-item (click)="openPage('login')" menuClose *ngIf="!loggedIn">
         <ion-icon name="log-in" item-left large></ion-icon>
         <h2>Login</h2>
         <p>Email and password</p>
+      </ion-item>
+
+      <ion-item menuClose *ngIf="loggedIn">
+        <ion-icon name="contact" item-left large></ion-icon>
+        <h2>Welcome</h2>
+        <p>{{ (this.user.firstname == '' ? this.user.username : this.user.firstname) || ""}}</p>
+      </ion-item>
+
+      <ion-item (click)="openPage('cart')" menuClose *ngIf="loggedIn">
+        <ion-icon name="cart" item-left large></ion-icon>
+        <h2>Your Cart</h2>
+        <p>view your cart here</p>
+      </ion-item>
+
+      <ion-item (click)="openPage('logout')" menuClose *ngIf="loggedIn">
+        <ion-icon name="log-out" item-left large></ion-icon>
+        <h2>Log Out</h2>
+        <p>log out of storrific</p>
       </ion-item>
 
     </ion-list>
