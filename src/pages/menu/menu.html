@@ -35,8 +35,8 @@
 
       <ion-item menuClose *ngIf="loggedIn">
         <ion-icon name="contact" item-left large></ion-icon>
-        <h2>Welcome</h2>
-        <p>{{ (this.user.firstname == '' ? this.user.username : this.user.firstname) || ""}}</p>
+        <h2>{{ (this.user.firstname == '' ? this.user.username : this.user.firstname) || ""}}</h2>
+        <p>Welcome</p>
       </ion-item>
 
       <ion-item (click)="openPage('cart')" menuClose *ngIf="loggedIn">
