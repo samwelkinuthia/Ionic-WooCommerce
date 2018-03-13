@@ -5,6 +5,7 @@ import * as WC from "woocommerce-api";
 import { ProductsByCategoryPage } from "../products-by-category/products-by-category";
 import { SignupPage } from "../signup/signup";
 import { LoginPage } from "../login/login";
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: 'page-menu',
@@ -14,13 +15,18 @@ export class MenuPage {
   homePage: any;
   WooCommerce: any;
   categories:any[];
+  loggedIn: boolean;
+  user: any;
+
   @ViewChild('content') childCtrl: NavController;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
 
     this.homePage = HomePage;
 
     this.categories = [];
+
+    this.user = {};
 
     this.WooCommerce = WC ({
       url: 'URL',
