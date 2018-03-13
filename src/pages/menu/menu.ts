@@ -124,7 +124,7 @@ export class MenuPage {
 
     if (pageName == "cart") {
 
-      let modal = this.modalCtrl.create('CartPage');
+      let modal = this.modalCtrl.create(CartPage);
 
       modal.present();
 
