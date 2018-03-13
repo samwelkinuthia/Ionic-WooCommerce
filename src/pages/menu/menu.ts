@@ -56,15 +56,40 @@ export class MenuPage {
 
       console.log(this.categories);
 
-    }, (err) => {
-      console.log(err);
-    })
+    });
+
+  }
+
+  ionViewDidEnter() {
+
+    this.storage.ready().then(() => {
+
+      this.storage.get('userLogin').then((userLogin) => {
+
+        if (userLogin != null) {
+
+          // console.log("HOORAY");
+          this.user = userLogin.user;
+
+          console.log(this.user);
+
+          this.loggedIn = true;
+          console.log(this.loggedIn);
+
+        }
+
+      });
+
+    });
 
   }
 
 
+
   openCategory(category) {
+
     this.childCtrl.setRoot(ProductsByCategoryPage, {"category": category});
+
   }
 
   //for navigations
