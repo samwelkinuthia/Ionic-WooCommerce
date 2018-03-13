@@ -37,11 +37,6 @@ export class ProductsByCategoryPage {
     });
   }
 
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductsByCategoryPage');
-  }
-
   loadMoreProducts(event){
 
     this.page++;
