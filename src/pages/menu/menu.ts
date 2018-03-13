@@ -71,7 +71,7 @@ export class MenuPage {
           // console.log("HOORAY");
           this.user = userLogin.user;
 
-          console.log(this.user);
+          // console.log(this.user);
 
           this.loggedIn = true;
           console.log(this.loggedIn);
@@ -102,6 +102,14 @@ export class MenuPage {
 
     if (pageName == "login") {
       this.navCtrl.push(LoginPage)
+    }
+
+    if (pageName == "logout") {
+      this.storage.remove('userLogin').then(() => {
+        this.user = {};
+        this.loggedIn = false;
+        console.log(this.loggedIn);
+      })
     }
 
   }
