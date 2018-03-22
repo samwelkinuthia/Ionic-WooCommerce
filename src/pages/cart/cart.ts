@@ -77,4 +77,15 @@ export class CartPage {
     this.viewController.dismiss();
   }
 
+  checkOut() {
+
+    this.storage.get('userLogin').then(  (user) => {
+
+      if (user != null) {
+        this.navCtrl.push(CheckOutPage);
+      }
+    })
+  }
+
+
 }
