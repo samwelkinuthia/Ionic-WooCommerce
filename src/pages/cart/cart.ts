@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
+import { CheckoutPage } from "../checkout/checkout";
+import { LoginPage } from "../login/login";
 
 @Component({
   selector: 'page-cart',
@@ -15,9 +17,11 @@ export class CartPage {
 
   emptyMessage: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public viewController: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public viewController: ViewController, public toastCtrl: ToastController) {
 
     this.total = 0.0;
+
+    console.log(this.cartItems.length);
 
     this.storage.ready().then(() => {
 
@@ -25,7 +29,7 @@ export class CartPage {
 
         this.cartItems = data;
 
-        if (this.cartItems.length > 0) {
+        if (this.cartItems != null && this.cartItems.length > 0) {
 
           this.cartItems.forEach((item, index) => {
 
@@ -81,10 +85,33 @@ export class CartPage {
 
     this.storage.get('userLogin').then(  (user) => {
 
+      // if (user != null) {
+      //
+      //   if (this.cartItems == null) {
+      //
+      //     this.toastCtrl.create({
+      //       message: 'Can\'t checkout an empty cart now can you?',
+      //       showCloseButton: true
+      //     }).present();
+      //
+      //   } else {
+      //
+      //     this.navCtrl.push(CheckoutPage);
+      //
+      //   }
+      //
+      // }
+
       if (user != null) {
-        this.navCtrl.push(CheckOutPage);
+
+        this.navCtrl.push(CheckoutPage);
+
+      } else {
+
+        this.navCtrl.push(LoginPage, {next: CheckoutPage});
+
       }
-    })
+    });
   }
 
 
