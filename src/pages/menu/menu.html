@@ -33,16 +33,18 @@
         <p>Email and password</p>
       </ion-item>
 
-      <ion-item menuClose *ngIf="loggedIn">
-        <ion-icon name="contact" item-left large></ion-icon>
-        <h2>{{ (this.user.firstname == '' ? this.user.username : this.user.firstname) || ""}}</h2>
-        <p>Welcome</p>
-      </ion-item>
+      <ion-item-divider color="primary">Account</ion-item-divider>
 
       <ion-item (click)="openPage('cart')" menuClose *ngIf="loggedIn">
         <ion-icon name="cart" item-left large></ion-icon>
         <h2>Your Cart</h2>
         <p>view your cart here</p>
+      </ion-item>
+
+      <ion-item menuClose *ngIf="loggedIn">
+        <ion-icon name="contact" item-left large></ion-icon>
+        <h2>{{ (this.user.firstname == '' ? this.user.username : this.user.firstname) || ""}}</h2>
+        <p>Welcome</p>
       </ion-item>
 
       <ion-item (click)="openPage('logout')" menuClose *ngIf="loggedIn">
