@@ -33,7 +33,7 @@
         <p>Email and password</p>
       </ion-item>
 
-      <ion-item-divider color="primary">Account</ion-item-divider>
+      <ion-item-divider color="primary" *ngIf="loggedIn">Account</ion-item-divider>
 
       <ion-item (click)="openPage('cart')" menuClose *ngIf="loggedIn">
         <ion-icon name="cart" item-left large></ion-icon>
