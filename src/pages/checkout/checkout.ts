@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: 'page-checkout',
@@ -12,14 +13,14 @@ export class CheckoutPage {
   paymentMethos: any;
   similar: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
 
     this.newOrder = {};
     this.newOrder.billing_address = {};
     this.newOrder.shippingAddress = {};
     this.similar = false;
 
-    this.paymentMethos = [
+    this.paymentMethods = [
       {method_id: 'bacs', method_title: 'Direct Bank Transfer'},
       {method_id: 'cheque', method_title: 'Cheque'},
       {method_id: 'cod', method_title: 'Cash On Delivery'},
