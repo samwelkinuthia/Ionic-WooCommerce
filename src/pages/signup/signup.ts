@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import * as WC from "woocommerce-api";
+import {LoginPage} from "../login/login";
 
 
 
@@ -17,7 +18,7 @@ export class SignupPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController) {
 
     this.newUser.billing_address = {};
-    this.newUser.shippingAddress = {};
+    this.newUser.shipping_address = {};
     this.similar = false;
 
     this.WooCommerce = WC ({
@@ -106,19 +107,30 @@ export class SignupPage {
       "password": this.newUser.password,
       "password_confirm": this.newUser.password_confirm,
       "billing_address" : {
-        "address": this.newUser.billing_address.address,
-        "town": this.newUser.billing_address.town,
-        "estate": this.newUser.billing_address.estate
+        "first_name": this.newUser.first_name,
+        "last_name": this.newUser.last_name,
+        "company": "",
+        "address_1": this.newUser.billing_address.address_1,
+        "city": this.newUser.billing_address.city,
+        "postcode": this.newUser.billing_address.postcode,
+        "country": 'kenya',
+        "email": this.newUser.email,
+        "phone": this.newUser.billing_address.phone
       },
-      "shippingAddress": {
-        "address": this.newUser.shippingAddress.address,
-        "town": this.newUser.shippingAddress.town
+      "shipping_address": {
+        "first_name": this.newUser.first_name,
+        "last_name": this.newUser.last_name,
+        "company": "",
+        "address_1": this.newUser.shipping_address.address_1,
+        "city": this.newUser.shipping_address.city,
+        "postcode": this.newUser.shipping_address.postcode,
+        "country": 'kenya'
       }
     };
 
     // set billing address equal to shipping address
     if (this.similar) {
-      this.newUser.billing_address = this.newUser.shippingAddress;
+      this.newUser.billing_address = this.newUser.shipping_address;
     }
 
     //post to woocommerce
@@ -133,7 +145,12 @@ export class SignupPage {
        this.alertCtrl.create({
           title: 'successfully registered',
           subTitle: 'proceed to login',
-          buttons: ['Login']
+          buttons: [{
+            text: 'Login',
+            handler: () => {
+              this.navCtrl.push(LoginPage)
+             }
+          }]
        }).present();
 
       }
