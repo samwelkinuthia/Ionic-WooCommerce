@@ -128,9 +128,15 @@ export class SignupPage {
       }
     };
 
-    // set billing address equal to shipping address
+    // set shipping address equal to billing address
     if (this.similar) {
-      this.newUser.billing_address = this.newUser.shipping_address;
+
+      customerData.customer['shipping_address'] = customerData.customer['billing_address'];
+
+      // if (customerData.customer['shipping_address'].address_1 == customerData.customer['billing_address'].address_1) {
+      //   console.log('YYEYEADYDHASDJHASDHSDA')
+      // }
+
     }
 
     //post to woocommerce
