@@ -16,32 +16,32 @@
 
     <ion-item>
       <ion-label>First Name</ion-label>
-      <ion-input type="text" [(ngModel)]="newUser.first_name"></ion-input>
+      <ion-input type="text" [(ngModel)]="newUser.first_name" required></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Last Name</ion-label>
-      <ion-input type="text" [(ngModel)]="newUser.last_name"></ion-input>
+      <ion-input type="text" [(ngModel)]="newUser.last_name" required></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Phone Number</ion-label>
-      <ion-input type="number" [(ngModel)]="newUser.phone_number"></ion-input>
+      <ion-input type="number" [(ngModel)]="newUser.phone_number" required></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-input type="text" [(ngModel)]="newUser.email" (ionBlur)="checkEmail()"></ion-input>
+      <ion-input type="text" [(ngModel)]="newUser.email" (ionBlur)="checkEmail()" required></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Password</ion-label>
-      <ion-input type="text" [(ngModel)]="newUser.password"></ion-input>
+      <ion-input type="text" [(ngModel)]="newUser.password" required></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Password Confirm</ion-label>
-      <ion-input type="text" [(ngModel)]="newUser.password_confirm"></ion-input>
+      <ion-input type="text" [(ngModel)]="newUser.password_confirm" required></ion-input>
     </ion-item>
 
     <!--BILLING DETAILS-->
@@ -50,12 +50,12 @@
 
     <ion-item>
       <ion-label>Address</ion-label>
-      <ion-textarea type="text" maxlength="50" [(ngModel)]="newUser.billing_address.address"></ion-textarea>
+      <ion-textarea type="text" maxlength="50" [(ngModel)]="newUser.billing_address.address_1"></ion-textarea>
     </ion-item>
 
     <ion-item>
       <ion-label>Town</ion-label>
-      <ion-select [(ngModel)]="newUser.billing_address.town">
+      <ion-select [(ngModel)]="newUser.billing_address.city" required>
         <ion-option value="Nairobi">Nairobi</ion-option>
         <ion-option value="Nakuru">Nakuru</ion-option>
         <ion-option value="Kisumu">Kisumu</ion-option>
@@ -63,8 +63,13 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Estate</ion-label>
-      <ion-input type="text" maxlength="10" [(ngModel)]="newUser.billing_address.location"></ion-input>
+      <ion-label>Postal Code</ion-label>
+      <ion-input type="number" clearInput [(ngModel)]="newUser.billing_address.postcode"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input type="number" [(ngModel)]="newUser.billing_address.phone" required></ion-input>
     </ion-item>
 
     <ion-item>
@@ -78,16 +83,26 @@
 
     <ion-item *ngIf="!similar">
       <ion-label>Address</ion-label>
-      <ion-textarea type="text" maxlength="50" [(ngModel)]="newUser.shippingAddress.address"></ion-textarea>
+      <ion-textarea type="text" maxlength="50" [(ngModel)]="newUser.shipping_address.address_1"></ion-textarea>
+    </ion-item>
+
+    <ion-item *ngIf="!similar">
+      <ion-label>Postal Code</ion-label>
+      <ion-input type="number" clearInput [(ngModel)]="newUser.shipping_address.postcode"></ion-input>
     </ion-item>
 
     <ion-item *ngIf="!similar">
       <ion-label>Town</ion-label>
-      <ion-select [(ngModel)]="newUser.billing_address.town">
+      <ion-select [(ngModel)]="newUser.shipping_address.city">
         <ion-option value="Nairobi">Nairobi</ion-option>
         <ion-option value="Nakuru">Nakuru</ion-option>
         <ion-option value="Kisumu">Kisumu</ion-option>
       </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input type="number" [(ngModel)]="newUser.shipping_address.phone" required></ion-input>
     </ion-item>
   </ion-list>
 
