@@ -14,6 +14,7 @@ import { SignupPage } from "../pages/signup/signup";
 import { LoginPage } from "../pages/login/login";
 import { CheckoutPage } from "../pages/checkout/checkout";
 import { HttpClientModule } from "@angular/common/http";
+import { WoocommerceProvider } from '../providers/woocommerce/woocommerce';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { HttpClientModule } from "@angular/common/http";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WoocommerceProvider
   ]
 })
 export class AppModule {}
