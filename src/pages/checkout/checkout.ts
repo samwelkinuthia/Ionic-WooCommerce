@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
+import * as WC from "woocommerce-api";
 
 @Component({
   selector: 'page-checkout',
@@ -9,9 +10,11 @@ import { Storage } from "@ionic/storage";
 export class CheckoutPage {
 
   newOrder: any;
-  paymentMethods: any;
-  paymentMethos: any;
+  paymentMethods: any[];
+  paymentMethod: any;
   similar: boolean;
+  WooCommerce: any;
+  userInfo: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
 
@@ -26,6 +29,31 @@ export class CheckoutPage {
       {method_id: 'cod', method_title: 'Cash On Delivery'},
       {method_id: 'paypal', method_title: 'Paypal'}
     ];
+
+    this.WooCommerce = WC ({
+      url: 'URL',
+      consumerKey: 'KEY',
+      consumerSecret: 'SECRET'
+    });
+
+    this.storage.ready().then(() => {
+
+      this.storage.get('userLogin').then((userLogin) => {
+
+        this.userInfo = userLogin.user;
+
+        console.log(this.userInfo);
+
+        let email = this.userInfo.email;
+
+        this.WooCommerce.getAsync('customers/email' + email).then((data) => {
+
+          this.newOrder = data.customer;
+
+        })
+
+      });
+    });
 
   }
 
