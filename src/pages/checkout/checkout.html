@@ -1,12 +1,113 @@
+
 <ion-header>
 
   <ion-navbar>
-    <ion-title>checkout</ion-title>
+    <ion-title style="text-align: center">Checkout</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <ion-list>
+    <!--PERSONAL DETAILS-->
+    <ion-item-divider color="primary">Personal details</ion-item-divider>
+
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.first_name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.last_name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input type="number" [(ngModel)]="newOrder.phone_number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.email" (ionBlur)="checkEmail()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password Confirm</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.password_confirm"></ion-input>
+    </ion-item>
+
+    <!--BILLING DETAILS-->
+
+    <ion-item-divider color="primary">Billing</ion-item-divider>
+
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <ion-textarea type="text" maxlength="50" [(ngModel)]="newOrder.billing_address.address"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Town</ion-label>
+      <ion-select [(ngModel)]="newOrder.billing_address.town">
+        <ion-option value="Nairobi">Nairobi</ion-option>
+        <ion-option value="Nakuru">Nakuru</ion-option>
+        <ion-option value="Kisumu">Kisumu</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Estate</ion-label>
+      <ion-input type="text" maxlength="10" [(ngModel)]="newOrder.billing_address.location"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Same as Shipping?</ion-label>
+      <ion-checkbox (ionChange)="setSimilar()"></ion-checkbox>
+    </ion-item>
+
+    <!--SHIPPING DETAILS-->
+
+    <ion-item-divider color="primary" *ngIf="!similar">Shipping</ion-item-divider>
+
+    <ion-item *ngIf="!similar">
+      <ion-label>Address</ion-label>
+      <ion-textarea type="text" maxlength="50" [(ngModel)]="newOrder.shippingAddress.address"></ion-textarea>
+    </ion-item>
+
+    <ion-item *ngIf="!similar">
+      <ion-label>Town</ion-label>
+      <ion-select [(ngModel)]="newOrder.billing_address.town">
+        <ion-option value="Nairobi">Nairobi</ion-option>
+        <ion-option value="Nakuru">Nakuru</ion-option>
+        <ion-option value="Kisumu">Kisumu</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="!similar">
+    <ion-label>Phone</ion-label>
+    <ion-textarea type="number" maxlength="13" [(ngModel)]="newOrder.shippingAddress.phone"></ion-textarea>
+  </ion-item>
+
+  <ion-item-divider color="primary" *ngIf="!similar">Payment</ion-item-divider>
+
+  <ion-item>
+    <ion-label>Payment Method</ion-label>
+    <ion-select [(ngModel)]="paymentMethod">
+      <ion-option *ngFor="let item of paymentItems" value="{{item.method_id}}">{{item.method_title}}</ion-option>
+    </ion-select>
+  </ion-item>
+
 
 </ion-content>
+
+<ion-footer>
+  <button ion-button round block (click)="placeOrder()">Place Order</button>
+</ion-footer>
