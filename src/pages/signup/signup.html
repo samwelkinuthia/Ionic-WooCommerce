@@ -100,7 +100,7 @@
       </ion-select>
     </ion-item>
 
-    <ion-item>
+    <ion-item *ngIf="!similar">
       <ion-label>Phone Number</ion-label>
       <ion-input type="number" [(ngModel)]="newUser.shipping_address.phone" required></ion-input>
     </ion-item>
