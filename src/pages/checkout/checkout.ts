@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { Storage } from "@ionic/storage";
+import {Component} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
+import {Storage} from "@ionic/storage";
 import * as WC from "woocommerce-api";
 
 @Component({
@@ -20,7 +20,7 @@ export class CheckoutPage {
 
     this.newOrder = {};
     this.newOrder.billing_address = {};
-    this.newOrder.shippingAddress = {};
+    this.newOrder.shipping_address = {};
     this.similar = false;
 
     this.paymentMethods = [
@@ -30,29 +30,26 @@ export class CheckoutPage {
       {method_id: 'paypal', method_title: 'Paypal'}
     ];
 
-    this.WooCommerce = WC ({
+    this.WooCommerce = WC({
       url: 'URL',
       consumerKey: 'KEY',
       consumerSecret: 'SECRET'
     });
 
-    this.storage.ready().then(() => {
+    this.storage.get('userLogin').then((userLogin) => {
 
-      this.storage.get('userLogin').then((userLogin) => {
+      this.userInfo = userLogin.user;
 
-        this.userInfo = userLogin.user;
+      let email = userLogin.user.email;
 
-        console.log(this.userInfo);
+      this.WooCommerce.getAsync('customers/email/' + email).then((data) => {
 
-        let email = this.userInfo.email;
+        // console.log(JSON.parse(data.body).customer);
 
-        this.WooCommerce.getAsync('customers/email' + email).then((data) => {
-
-          this.newOrder = data.customer;
-
-        })
+        this.newOrder = JSON.parse(data.body).customer;
 
       });
+
     });
 
   }
@@ -63,7 +60,7 @@ export class CheckoutPage {
 
     if (this.similar) {
 
-      this.newOrder.billing_address = this.newOrder.shippingAddress
+      this.newOrder.billing_address = this.newOrder.shipping_address
 
     }
   }
