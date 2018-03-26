@@ -1,12 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { HomePage} from "../home/home";
-import * as WC from "woocommerce-api";
 import { ProductsByCategoryPage } from "../products-by-category/products-by-category";
 import { SignupPage } from "../signup/signup";
 import { LoginPage } from "../login/login";
 import { Storage } from "@ionic/storage";
 import { CartPage } from "../cart/cart";
+import { WoocommerceProvider } from "../../providers/woocommerce/woocommerce";
 
 @Component({
   selector: 'page-menu',
@@ -21,7 +21,7 @@ export class MenuPage {
 
   @ViewChild('content') childCtrl: NavController;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public modalCtrl: ModalController, private WP: WoocommerceProvider) {
 
     this.homePage = HomePage;
 
@@ -29,11 +29,7 @@ export class MenuPage {
 
     this.user = {};
 
-    this.WooCommerce = WC ({
-      url: 'URL',
-      consumerKey: 'KEY',
-      consumerSecret: 'SECRET'
-    });
+    this.WooCommerce = WP.init();
 
     this.WooCommerce.getAsync("products/categories").then((data) => {
 

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {Storage} from "@ionic/storage";
-import * as WC from "woocommerce-api";
+import { WoocommerceProvider } from "../../providers/woocommerce/woocommerce";
 
 @Component({
   selector: 'page-checkout',
@@ -16,7 +16,7 @@ export class CheckoutPage {
   WooCommerce: any;
   userInfo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, private WP: WoocommerceProvider) {
 
     this.newOrder = {};
     this.newOrder.billing_address = {};
@@ -30,11 +30,7 @@ export class CheckoutPage {
       {method_id: 'paypal', method_title: 'Paypal'}
     ];
 
-    this.WooCommerce = WC({
-      url: 'URL',
-      consumerKey: 'KEY',
-      consumerSecret: 'SECRET'
-    });
+    this.WooCommerce = WP.init();
 
     this.storage.get('userLogin').then((userLogin) => {
 

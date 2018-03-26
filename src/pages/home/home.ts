@@ -1,7 +1,7 @@
 import { Component, ViewChild} from "@angular/core";
 import { NavController, Slides, ToastController } from "ionic-angular";
-import * as WC from 'woocommerce-api';
 import { ProductDetailsPage } from "../product-details/product-details";
+import { WoocommerceProvider } from "../../providers/woocommerce/woocommerce";
 
 @Component({
   selector: 'page-home',
@@ -16,15 +16,11 @@ export class HomePage {
 
   @ViewChild('productSlides') productSlides: Slides;
 
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController){
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, private WP: WoocommerceProvider){
 
     this.page = 2;
 
-    this.WooCommerce = WC ({
-      url: 'URL',
-      consumerKey: 'KEY',
-      consumerSecret: 'SECRET'
-    });
+    this.WooCommerce = WP.init();
 
     this.loadMoreProducts(null);
 

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
-import * as WC from "woocommerce-api";
 import {LoginPage} from "../login/login";
-
+import {WoocommerceProvider} from "../../providers/woocommerce/woocommerce";
 
 
 @Component({
@@ -15,17 +14,13 @@ export class SignupPage {
   similar: boolean;
   WooCommerce: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController, private WP: WoocommerceProvider) {
 
     this.newUser.billing_address = {};
     this.newUser.shipping_address = {};
     this.similar = false;
 
-    this.WooCommerce = WC ({
-      url: 'URL',
-      consumerKey: 'KEY',
-      consumerSecret: 'SECRET'
-    });
+    this.WooCommerce = WP.init();
 
   }
 

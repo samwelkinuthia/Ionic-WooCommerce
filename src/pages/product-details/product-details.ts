@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
-import * as WC from 'woocommerce-api';
 import { Storage } from '@ionic/storage';
 import { CartPage } from "../cart/cart";
+import { WoocommerceProvider } from "../../providers/woocommerce/woocommerce";
 
 @Component({
   selector: 'page-product-details',
@@ -14,17 +14,13 @@ export class ProductDetailsPage {
   reviews: any[] = [];
   WooCommerce: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public storage: Storage, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public storage: Storage, public modalCtrl: ModalController,private WP: WoocommerceProvider) {
 
     this.product = this.navParams.get("product");
 
     console.log(this.product);
 
-    this.WooCommerce = WC ({
-      url: 'URL',
-      consumerKey: 'KEY',
-      consumerSecret: 'SECRET'
-    });
+    this.WooCommerce = WP.init();
 
     this.WooCommerce.getAsync('products/' + this.product.id + '/reviews').then((data) => {
 
