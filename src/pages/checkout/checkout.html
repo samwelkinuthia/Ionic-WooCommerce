@@ -11,41 +11,40 @@
 <ion-content>
 
   <ion-list>
-    <!--PERSONAL DETAILS-->
-    <ion-item-divider color="primary">Personal details</ion-item-divider>
+
+    <ion-item-divider color="primary">Personal Details</ion-item-divider>
 
     <ion-item>
       <ion-label>First Name</ion-label>
-      <ion-input type="text" [(ngModel)]="newOrder.first_name"></ion-input>
+      <ion-input type="text" [(ngModel)]="newOrder.billing_address.first_name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Last Name</ion-label>
-      <ion-input type="text" [(ngModel)]="newOrder.last_name"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Phone Number</ion-label>
-      <ion-input type="number" [(ngModel)]="newOrder.phone_number"></ion-input>
+      <ion-input type="text" [(ngModel)]="newOrder.billing_address.last_name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-input type="text" [(ngModel)]="newOrder.email" (ionBlur)="checkEmail()"></ion-input>
+      <ion-input readonly type="email" [(ngModel)]="newOrder.email"></ion-input>
     </ion-item>
 
-    <!--BILLING DETAILS-->
+    <!--BILLING-->
 
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input readonly type="text" [(ngModel)]="newOrder.username"></ion-input>
+    </ion-item>
     <ion-item-divider color="primary">Billing</ion-item-divider>
 
     <ion-item>
       <ion-label>Address</ion-label>
-      <ion-textarea type="text" maxlength="50" [(ngModel)]="newOrder.billing_address.address"></ion-textarea>
+      <ion-textarea type="text" maxlength="50" [(ngModel)]="newOrder.billing_address.address_1"></ion-textarea>
     </ion-item>
 
     <ion-item>
       <ion-label>Town</ion-label>
-      <ion-select [(ngModel)]="newOrder.billing_address.town">
+      <ion-select [(ngModel)]="newOrder.billing_address.city">
         <ion-option value="Nairobi">Nairobi</ion-option>
         <ion-option value="Nakuru">Nakuru</ion-option>
         <ion-option value="Kisumu">Kisumu</ion-option>
@@ -53,8 +52,13 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Estate</ion-label>
-      <ion-input type="text" maxlength="10" [(ngModel)]="newOrder.billing_address.location"></ion-input>
+      <ion-label>Postal Code</ion-label>
+      <ion-input type="number" clearInput [(ngModel)]="newOrder.billing_address.postcode"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input type="tel" [(ngModel)]="newOrder.billing_address.phone"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -68,12 +72,12 @@
 
     <ion-item *ngIf="!similar">
       <ion-label>Address</ion-label>
-      <ion-textarea type="text" maxlength="50" [(ngModel)]="newOrder.shippingAddress.address"></ion-textarea>
+      <ion-textarea type="text" maxlength="50" [(ngModel)]="newOrder.shipping_address.address_1"></ion-textarea>
     </ion-item>
 
     <ion-item *ngIf="!similar">
       <ion-label>Town</ion-label>
-      <ion-select [(ngModel)]="newOrder.billing_address.town">
+      <ion-select [(ngModel)]="newOrder.shipping_address.city">
         <ion-option value="Nairobi">Nairobi</ion-option>
         <ion-option value="Nakuru">Nakuru</ion-option>
         <ion-option value="Kisumu">Kisumu</ion-option>
@@ -82,11 +86,16 @@
   </ion-list>
 
   <ion-item *ngIf="!similar">
-    <ion-label>Phone</ion-label>
-    <ion-textarea type="number" maxlength="13" [(ngModel)]="newOrder.shippingAddress.phone"></ion-textarea>
+    <ion-label>Postal Code</ion-label>
+    <ion-input type="number" clearInput [(ngModel)]="newOrder.shipping_address.postcode"></ion-input>
   </ion-item>
 
-  <ion-item-divider color="primary" *ngIf="!similar">Payment</ion-item-divider>
+  <ion-item *ngIf="!similar">
+    <ion-label>Phone</ion-label>
+    <ion-textarea type="tel" maxlength="13" [(ngModel)]="newOrder.shipping_address.phone"></ion-textarea>
+  </ion-item>
+
+  <ion-item-divider color="primary">Payment</ion-item-divider>
 
   <ion-item>
     <ion-label>Payment Method</ion-label>
