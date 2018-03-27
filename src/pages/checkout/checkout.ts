@@ -61,4 +61,27 @@ export class CheckoutPage {
     }
   }
 
+  placeOrder() {
+
+    let orderItems: any[] = [];
+    let data: any = {};
+
+    let paymentData: any = {};
+
+    this.paymentMethods.forEach((element, index) => {
+
+      // console.log(element);
+
+      if (this.paymentMethod == element.method_id) {
+
+        paymentData = element;
+
+        console.log(paymentData);
+
+      }
+
+    })
+
+  }
+
 }
