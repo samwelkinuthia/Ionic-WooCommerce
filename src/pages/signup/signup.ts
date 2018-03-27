@@ -149,7 +149,7 @@ export class SignupPage {
           buttons: [{
             text: 'Login',
             handler: () => {
-              this.navCtrl.push(LoginPage)
+              this.navCtrl.push(LoginPage);
              }
           }]
        }).present();
