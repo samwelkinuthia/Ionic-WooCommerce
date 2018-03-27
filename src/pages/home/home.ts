@@ -26,14 +26,14 @@ export class HomePage {
 
     this.WooCommerce.getAsync('products').then( (data) => {
 
-     console.log(JSON.parse(data.body));
+     // console.log(JSON.parse(data.body));
 
      this.products = JSON.parse(data.body).products;
      // console.log(this.products);
 
     }, (err) => {
 
-      console.log(err)
+      // console.log(err)
 
     });
   }
@@ -54,7 +54,7 @@ export class HomePage {
 
   loadMoreProducts(event){
 
-    console.log(event);
+    // console.log(event);
 
     if(event == null) {
 
@@ -67,7 +67,7 @@ export class HomePage {
 
       this.page++;
 
-    this.WooCommerce.getAsync("products?page=" + this.page).then( (data) => {
+      this.WooCommerce.getAsync("products?page=" + this.page).then( (data) => {
 
       // console.log(JSON.parse(data.body));
       this.moreProducts = this.moreProducts.concat(JSON.parse(data.body).products);
@@ -90,7 +90,7 @@ export class HomePage {
 
       }
     }, (err) => {
-      console.log(err)
+      // console.log(err)
     });
   }
 
