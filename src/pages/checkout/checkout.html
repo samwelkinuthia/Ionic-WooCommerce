@@ -100,7 +100,7 @@
   <ion-item>
     <ion-label>Payment Method</ion-label>
     <ion-select [(ngModel)]="paymentMethod">
-      <ion-option *ngFor="let item of paymentItems" value="{{item.method_id}}">{{item.method_title}}</ion-option>
+      <ion-option *ngFor="let item of paymentMethods" value="{{item.method_id}}">{{item.method_title}}</ion-option>
     </ion-select>
   </ion-item>
 
