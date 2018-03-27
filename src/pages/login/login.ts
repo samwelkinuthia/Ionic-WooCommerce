@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import { HttpClient } from "@angular/common/http";
 import { Storage } from "@ionic/storage";
+import {SignupPage} from "../signup/signup";
 
 @Component({
   selector: 'page-login',
@@ -59,6 +60,12 @@ export class LoginPage {
       })
 
     })
+  }
+
+  takeMeToSignUp() {
+
+    this.navCtrl.push(SignupPage);
+
   }
 
 
