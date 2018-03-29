@@ -15,6 +15,7 @@ import { LoginPage } from "../pages/login/login";
 import { CheckoutPage } from "../pages/checkout/checkout";
 import { HttpClientModule } from "@angular/common/http";
 import { WoocommerceProvider } from '../providers/woocommerce/woocommerce';
+import { PayPal } from "@ionic-native/paypal";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { WoocommerceProvider } from '../providers/woocommerce/woocommerce';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    WoocommerceProvider
+    WoocommerceProvider,
+    PayPal
   ]
 })
 export class AppModule {}
