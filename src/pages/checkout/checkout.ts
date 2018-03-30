@@ -104,35 +104,62 @@ export class CheckoutPage {
       //NEXT UP
 
       this.payPal.init({
+
         PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
         PayPalEnvironmentSandbox: 'YOUR_SANDBOX_CLIENT_ID'
+
       }).then(() => {
+
         // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
         this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
           // Only needed if you get an "Internal Service Error" after PayPal login!
           //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
-        })).then(() => {
-          let payment = new PayPalPayment('3.33', 'USD', 'Description', 'sale');
-          this.payPal.renderSinglePaymentUI(payment).then(() => {
-            // Successfully paid
 
-            // Example sandbox response
-            //
-            // {
-            //   "client": {
-            //     "environment": "sandbox",
-            //     "product_name": "PayPal iOS SDK",
-            //     "paypal_sdk_version": "2.16.0",
-            //     "platform": "iOS"
-            //   },
-            //   "response_type": "payment",
-            //   "response": {
-            //     "id": "PAY-1AB23456CD789012EF34GHIJ",
-            //     "state": "approved",
-            //     "create_time": "2016-10-03T13:33:33Z",
-            //     "intent": "sale"
-            //   }
-            // }
+        })).then(() => {
+
+          this.storage.get('cart').then((cart)=> {
+
+            let total = 0.0;
+
+            cart.forEach((element, index) => {
+
+              orderItems.push({product_id: element.product.id, quantity: element.quantity});
+              total = total + (element.product_id.price * element.quantity);
+
+            });
+
+            let payment = new PayPalPayment(total.toString(), 'KSH', 'Description', 'sale');
+
+            this.payPal.renderSinglePaymentUI(payment).then((response) => {
+
+              alert(JSON.stringify(response));
+
+              data.line_items = orderItems;
+              let orderData: any = {};
+              orderData.order = data;
+
+              this.WooCommerce.postAsync('orders', orderData, (err, data, res) => {
+
+                alert("Order paid successfully");
+
+
+                let result = JSON.parse(data.body).order;
+
+                this.alertCtrl.create({
+                  title: "Order created successfully",
+                  message: "your order number is: " + result.order_number,
+                  buttons: [{
+                    text: "OK",
+                    handler: () => {
+                      this.navCtrl.setRoot(HomePage);
+                    }
+                  }]
+                }).present();
+
+              });
+
+          });
+
           }, () => {
             // Error or render dialog closed without being successful
           });
