@@ -16,6 +16,7 @@ import { CheckoutPage } from "../pages/checkout/checkout";
 import { HttpClientModule } from "@angular/common/http";
 import { WoocommerceProvider } from '../providers/woocommerce/woocommerce';
 import { PayPal } from "@ionic-native/paypal";
+import { OneSignal } from "@ionic-native/onesignal";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { PayPal } from "@ionic-native/paypal";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WoocommerceProvider,
-    PayPal
+    PayPal,
+    OneSignal
   ]
 })
 export class AppModule {}
