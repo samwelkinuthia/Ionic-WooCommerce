@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { CartPage } from "../cart/cart";
 import { WoocommerceProvider } from "../../providers/woocommerce/woocommerce";
 
+@IonicPage({})
 @Component({
   selector: 'page-product-details',
   templateUrl: 'product-details.html',
