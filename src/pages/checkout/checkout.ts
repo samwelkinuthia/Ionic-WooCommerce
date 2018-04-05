@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage,NavController, NavParams, AlertController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { WoocommerceProvider } from "../../providers/woocommerce/woocommerce";
 import { HomePage } from "../home/home";
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
 
+@IonicPage({})
 @Component({
   selector: 'page-checkout',
   templateUrl: 'checkout.html',
@@ -18,7 +19,7 @@ export class CheckoutPage {
   WooCommerce: any;
   userInfo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, private WP: WoocommerceProvider, public alertCtrl: AlertController, private payPal: PayPal) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, private WP: WoocommerceProvider, public alertCtrl: AlertController, public payPal: PayPal) {
 
     this.newOrder = {};
     this.newOrder.billing_address = {};
