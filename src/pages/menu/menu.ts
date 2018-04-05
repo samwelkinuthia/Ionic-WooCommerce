@@ -8,6 +8,8 @@ import { Storage } from "@ionic/storage";
 import { CartPage } from "../cart/cart";
 import { WoocommerceProvider } from "../../providers/woocommerce/woocommerce";
 
+@IonicPage({})
+
 @Component({
   selector: 'page-menu',
   templateUrl: 'menu.html',
