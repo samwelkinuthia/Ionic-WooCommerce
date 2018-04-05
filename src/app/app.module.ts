@@ -5,7 +5,6 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { MenuPage } from "../pages/menu/menu";
 import { ProductsByCategoryPage } from "../pages/products-by-category/products-by-category";
 import { ProductDetailsPage } from "../pages/product-details/product-details";
 import { IonicStorageModule } from "@ionic/storage";
@@ -15,6 +14,7 @@ import { LoginPage } from "../pages/login/login";
 import { CheckoutPage } from "../pages/checkout/checkout";
 import { HttpClientModule } from "@angular/common/http";
 import { WoocommerceProvider } from '../providers/woocommerce/woocommerce';
+import { SearchPage} from "../pages/search/search";
 import { PayPal } from "@ionic-native/paypal";
 import { OneSignal } from "@ionic-native/onesignal";
 
@@ -22,13 +22,13 @@ import { OneSignal } from "@ionic-native/onesignal";
   declarations: [
     MyApp,
     HomePage,
-    MenuPage,
     ProductsByCategoryPage,
     ProductDetailsPage,
     CartPage,
     SignupPage,
     LoginPage,
-    CheckoutPage
+    CheckoutPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -40,13 +40,13 @@ import { OneSignal } from "@ionic-native/onesignal";
   entryComponents: [
     MyApp,
     HomePage,
-    MenuPage,
     ProductsByCategoryPage,
     ProductDetailsPage,
     CartPage,
     SignupPage,
     LoginPage,
-    CheckoutPage
+    CheckoutPage,
+    SearchPage
   ],
   providers: [
     StatusBar,
