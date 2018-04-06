@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="mine">
     <ion-title style="text-align: center">Customer signup</ion-title>
   </ion-navbar>
 
@@ -46,7 +46,7 @@
 
     <!--BILLING DETAILS-->
 
-    <ion-item-divider color="primary">Billing</ion-item-divider>
+    <ion-item-divider color="primary">Billing details</ion-item-divider>
 
     <ion-item>
       <ion-label>Address</ion-label>
@@ -79,7 +79,7 @@
 
     <!--SHIPPING DETAILS-->
 
-    <ion-item-divider color="primary" *ngIf="!similar">Shipping</ion-item-divider>
+    <ion-item-divider color="primary" *ngIf="!similar">Shipping details</ion-item-divider>
 
     <ion-item *ngIf="!similar">
       <ion-label>Address</ion-label>
@@ -109,5 +109,5 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button round block (click)="signUp()">Sign Up</button>
+  <button ion-button round block (click)="signUp()" color="mine">Sign Up</button>
 </ion-footer>

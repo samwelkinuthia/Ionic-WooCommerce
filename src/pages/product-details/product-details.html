@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ product.title }} details</ion-title>
+    <ion-title><span class="title">{{ product.title }} details</span></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,7 +8,7 @@
 <ion-content padding>
 
   <ion-fab top right edge (click)="openCart()">
-    <button ion-fab color="primary">
+    <button ion-fab color="mine">
       <ion-icon name="cart"></ion-icon>
     </button>
   </ion-fab>
@@ -24,13 +24,13 @@
         {{product.title}}
       </ion-card-title>
 
-      <ion-chip *ngFor="let category of product.categories">
-        <ion-label color="primary">{{ category }}</ion-label>
-      </ion-chip> <ion-icon name="checkmark-circle" float-right></ion-icon>
+      <ion-chip *ngFor="let category of product.categories" class="labels">
+        <ion-label>{{ category }}</ion-label>
+      </ion-chip> <ion-icon name="checkmark-circle" float-right large color="secondary"></ion-icon>
 
       <i [innerHTML]="product.description"></i>
 
-      <button ion-button icon-left block outline color="primary" (click)="addToCart(product)">
+      <button ion-button icon-left block color="mine" (click)="addToCart(product)">
         <ion-icon name="basket" left></ion-icon> Add to Cart for Ksh {{product.price}}
       </button>
 

@@ -26,11 +26,11 @@
     <ion-row>
       <ion-slides #productSlides>
         <ion-slide *ngFor="let product of products">
-          <ion-card no-padding>
+          <ion-card no-padding class="carda">
             <img [src]="product.featured_src" alt="">
             <h1>{{ product.title }}</h1>
             <p center padding [innerHTML]="product.description"></p>
-            <h2>KSH {{product.price}}</h2>
+            <h2 class="ksh">Ksh <b>{{product.price}}</b></h2>
           </ion-card>
         </ion-slide>
       </ion-slides>
@@ -48,7 +48,7 @@
         <span [innerHTML]="product.price"></span>
       </p>
       <button ion-button icon clear item-right>
-        <ion-icon name="arrow-forward"></ion-icon>
+        <ion-icon name="arrow-forward" color="danger"></ion-icon>
       </button>
     </ion-item>
   </ion-list>

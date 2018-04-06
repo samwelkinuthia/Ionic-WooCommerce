@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="mine">
     <ion-title style="text-align: center">Checkout</ion-title>
   </ion-navbar>
 
@@ -12,30 +12,31 @@
 
   <ion-list>
 
-    <ion-item-divider color="primary">Personal Details</ion-item-divider>
+    <ion-item-divider color="primary" style="display: none">Personal Details</ion-item-divider>
 
-    <ion-item>
+    <ion-item style="display: none">
       <ion-label>First Name</ion-label>
       <ion-input type="text" [(ngModel)]="newOrder.billing_address.first_name"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item style="display: none">
       <ion-label>Last Name</ion-label>
       <ion-input type="text" [(ngModel)]="newOrder.billing_address.last_name"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item style="display: none">
       <ion-label>Email</ion-label>
       <ion-input readonly type="email" [(ngModel)]="newOrder.email"></ion-input>
     </ion-item>
 
-    <!--BILLING-->
-
-    <ion-item>
+    <ion-item style="display: none">
       <ion-label>Username</ion-label>
       <ion-input readonly type="text" [(ngModel)]="newOrder.username"></ion-input>
     </ion-item>
-    <ion-item-divider color="primary">Billing</ion-item-divider>
+
+    <!--BILLING-->
+
+    <ion-item-divider color="dark">Billing</ion-item-divider>
 
     <ion-item>
       <ion-label>Address</ion-label>
@@ -68,7 +69,7 @@
 
     <!--SHIPPING DETAILS-->
 
-    <ion-item-divider color="primary" *ngIf="!similar">Shipping</ion-item-divider>
+    <ion-item-divider color="dark" *ngIf="!similar">Shipping</ion-item-divider>
 
     <ion-item *ngIf="!similar">
       <ion-label>Address</ion-label>
@@ -95,11 +96,11 @@
     <ion-textarea type="tel" maxlength="13" [(ngModel)]="newOrder.shipping_address.phone"></ion-textarea>
   </ion-item>
 
-  <ion-item-divider color="primary">Payment</ion-item-divider>
+  <ion-item-divider color="dark">Payment</ion-item-divider>
 
   <ion-item>
     <ion-label>Payment Method</ion-label>
-    <ion-select [(ngModel)]="paymentMethod">
+    <ion-select [(ngModel)]="paymentMethod" required="true">
       <ion-option *ngFor="let item of paymentMethods" value="{{item.method_id}}">{{item.method_title}}</ion-option>
     </ion-select>
   </ion-item>
@@ -108,5 +109,5 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button round block (click)="placeOrder()">Place Order</button>
+  <button ion-button round block color="mine" (click)="placeOrder()">Place Order</button>
 </ion-footer>
