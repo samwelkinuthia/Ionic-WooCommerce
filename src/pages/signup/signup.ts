@@ -65,7 +65,7 @@ export class SignupPage {
 
         }
 
-        console.log(validEmail);
+        // console.log(validEmail);
 
       });
 
@@ -73,7 +73,7 @@ export class SignupPage {
 
       validEmail = false;
 
-      console.log(validEmail);
+      // console.log(validEmail);
 
       this.toastCtrl.create({
         message: 'Invalid email',
@@ -143,8 +143,10 @@ export class SignupPage {
 
       if (response.customer) {
 
+        let username = response.customer.username;
+
        this.alertCtrl.create({
-          title: 'successfully registered',
+          title: 'Successfully registered. Your username is ' + username,
           subTitle: 'proceed to login',
           buttons: [{
             text: 'Login',
