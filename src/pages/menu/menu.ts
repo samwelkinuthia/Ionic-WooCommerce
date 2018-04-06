@@ -40,12 +40,11 @@ export class MenuPage {
 
       for (let i = 0; i < temp.length; i++){
 
-        console.log(temp[i].slug);
+        // console.log(temp[i].slug);
 
-        console.log(temp[i]);
+        // console.log(temp[i]);
 
         if (temp[i].count > 0) {
-
 
           if(temp[i].parent == 0){
 
