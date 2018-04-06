@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage,NavController, NavParams, AlertController } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, AlertController, ToastController, Toast} from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { WoocommerceProvider } from "../../providers/woocommerce/woocommerce";
 import { HomePage } from "../home/home";
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
+import { MenuPage } from "../menu/menu";
 
 @IonicPage({})
 @Component({
@@ -19,7 +20,7 @@ export class CheckoutPage {
   WooCommerce: any;
   userInfo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, private WP: WoocommerceProvider, public alertCtrl: AlertController, public payPal: PayPal) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, private WP: WoocommerceProvider, public alertCtrl: AlertController, public payPal: PayPal, public toastCtrl: ToastController) {
 
     this.newOrder = {};
     this.newOrder.billing_address = {};
@@ -100,121 +101,153 @@ export class CheckoutPage {
 
     };
 
-    if (paymentData.method_id == 'paypal') {
+    if (paymentData.method_id != null) {
 
-      //NEXT UP
+      if (paymentData.method_id == 'paypal') {
 
-      this.payPal.init({
+        //NEXT UP
 
-        PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-        PayPalEnvironmentSandbox: 'YOUR_SANDBOX_CLIENT_ID'
+        this.payPal.init({
 
-      }).then(() => {
+          PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
+          PayPalEnvironmentSandbox: 'YOUR_SANDBOX_CLIENT_ID'
 
-        // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
-        this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
-          // Only needed if you get an "Internal Service Error" after PayPal login!
-          //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
+        }).then(() => {
 
-        })).then(() => {
+          // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
+          this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+            // Only needed if you get an "Internal Service Error" after PayPal login!
+            //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
 
-          this.storage.get('cart').then((cart)=> {
+          })).then(() => {
 
-            let total = 0.0;
+            this.storage.get('cart').then((cart)=> {
 
-            cart.forEach((element, index) => {
+              let total = 0.0;
 
-              orderItems.push({product_id: element.product.id, quantity: element.quantity});
-              total = total + (element.product_id.price * element.quantity);
+              cart.forEach((element, index) => {
 
-            });
-
-            let payment = new PayPalPayment(total.toString(), 'KSH', 'Description', 'sale');
-
-            this.payPal.renderSinglePaymentUI(payment).then((response) => {
-
-              alert(JSON.stringify(response));
-
-              data.line_items = orderItems;
-              let orderData: any = {};
-              orderData.order = data;
-
-              this.WooCommerce.postAsync('orders', orderData, (err, data, res) => {
-
-                alert("Order paid successfully");
-
-
-                let result = JSON.parse(data.body).order;
-
-                this.alertCtrl.create({
-                  title: "Order created successfully",
-                  message: "your order number is: " + result.order_number,
-                  buttons: [{
-                    text: "OK",
-                    handler: () => {
-                      this.navCtrl.setRoot(HomePage);
-                    }
-                  }]
-                }).present();
+                orderItems.push({product_id: element.product.id, quantity: element.quantity});
+                total = total + (element.product_id.price * element.quantity);
 
               });
 
-          });
+              let payment = new PayPalPayment(total.toString(), 'KSH', 'Description', 'sale');
 
+              this.payPal.renderSinglePaymentUI(payment).then((response) => {
+
+                alert(JSON.stringify(response));
+
+                data.line_items = orderItems;
+                let orderData: any = {};
+                orderData.order = data;
+
+                this.WooCommerce.postAsync('orders', orderData, (err, data, res) => {
+
+                  alert("Order paid successfully");
+
+
+                  let result = JSON.parse(data.body).order;
+
+                  this.alertCtrl.create({
+                    title: "Order created successfully",
+                    message: "your order number is: " + result.order_number,
+                    buttons: [{
+                      text: "OK",
+                      handler: () => {
+                        this.navCtrl.setRoot(HomePage);
+                      }
+                    }]
+                  }).present();
+
+                });
+
+              });
+
+            }, () => {
+              // Error or render dialog closed without being successful
+            });
           }, () => {
-            // Error or render dialog closed without being successful
+            // Error in configuration
           });
         }, () => {
-          // Error in configuration
+          // Error in initialization, maybe PayPal isn't supported or something else
         });
-      }, () => {
-        // Error in initialization, maybe PayPal isn't supported or something else
-      });
+
+
+      } else {
+
+        this.storage.get('cart').then((cart) => {
+
+          cart.forEach((element, index) => {
+
+
+            orderItems.push({
+
+              product_id: element.product.id,
+              quantity: element.quantity
+
+            });
+
+          });
+
+          data.line_items = orderItems;
+
+          let completeOrder: any = {};
+
+          completeOrder.order = data;
+
+          this.WooCommerce.postAsync("orders", completeOrder).then((data) => {
+
+            console.log(JSON.parse(data.body).order);
+
+            let res = JSON.parse(data.body).order;
+
+            this.storage.remove('cart').then(() => {
+
+              console.log("cart cleared")
+
+              this.alertCtrl.create({
+                title: "Your Order has been placed successfully",
+                message: "your order number is: " + res.order_number + ". Check your email for more details. Thank you!",
+                buttons: [{
+                  text: "OK",
+                  handler: () => {
+
+                    // this.navCtrl.popToRoot();
+
+                    this.navCtrl.setRoot(MenuPage);
+
+                    // if (this.navParams.get('prev')) {
+                    //
+                    //   this.navCtrl.push(this.navParams.get('prev'));
+                    //
+                    // } else {
+                    //
+                    //   this.navCtrl.pop();
+                    //
+                    // }
+                  }
+                }]
+              }).present();
+
+            });
+
+
+          });
+
+
+        });
+
+      }
 
 
     } else {
 
-      this.storage.get('cart').then((cart) => {
-
-        cart.forEach((element, index) => {
-
-
-          orderItems.push({
-
-            product_id: element.product.id,
-            quantity: element.quantity
-
-          });
-
-        });
-
-        data.line_items = orderItems;
-
-        let completeOrder: any = {};
-
-        completeOrder.order = data;
-
-        this.WooCommerce.postAsync("orders", completeOrder).then((data) => {
-
-          console.log(JSON.parse(data.body).order);
-
-          let res = JSON.parse(data.body).order;
-
-          this.alertCtrl.create({
-            title: "Order created successfully",
-            message: "your order number is: " + res.order_number,
-            buttons: [{
-              text: "OK",
-              handler: () => {
-                this.navCtrl.setRoot(HomePage);
-              }
-            }]
-          }).present();
-
-        });
-
-
-      });
+      this.toastCtrl.create({
+        message: 'No Payment method selected',
+        showCloseButton: true
+      }).present();
 
     }
 
