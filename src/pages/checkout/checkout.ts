@@ -110,7 +110,7 @@ export class CheckoutPage {
         this.payPal.init({
 
           PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-          PayPalEnvironmentSandbox: 'YOUR_SANDBOX_CLIENT_ID'
+          PayPalEnvironmentSandbox: 'saisdjasdjlkasjksajasdklsdka'
 
         }).then(() => {
 
@@ -180,7 +180,6 @@ export class CheckoutPage {
         this.storage.get('cart').then((cart) => {
 
           cart.forEach((element, index) => {
-
 
             orderItems.push({
 

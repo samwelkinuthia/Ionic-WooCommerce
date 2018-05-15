@@ -27,7 +27,7 @@ export class MyApp {
 
       //One signal push notifications
 
-      this.oneSignal.startInit('OneSignal App ID', 'PROJECT-NUMBER');
+      this.oneSignal.startInit('zzzzz', 'zzzz');
 
       this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
 
