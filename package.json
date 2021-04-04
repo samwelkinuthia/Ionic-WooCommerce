@@ -39,7 +39,7 @@
   "devDependencies": {
     "@ionic/app-scripts": "3.1.6",
     "dotenv": "^4.0.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "typescript": "2.4.2",
     "woocommerce-api": "^1.4.2"
   },
